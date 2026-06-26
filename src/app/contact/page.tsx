@@ -3,7 +3,8 @@
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
-import { supabase, type ContactInquiry } from "@/lib/supabase";
+
+const SHEET_WEBHOOK_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ?? "";
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -16,27 +17,39 @@ function ContactForm() {
     setError(null);
 
     const form = e.currentTarget;
-    const data: ContactInquiry = {
+    const data = {
       name:         (form.elements.namedItem("name")         as HTMLInputElement).value.trim(),
       email:        (form.elements.namedItem("email")        as HTMLInputElement).value.trim(),
-      organization: (form.elements.namedItem("organization") as HTMLInputElement).value.trim() || undefined,
-      service_area: ((form.elements.namedItem("service") as HTMLSelectElement).value || undefined) as ContactInquiry["service_area"],
-      challenge:    (form.elements.namedItem("challenge")    as HTMLInputElement).value.trim() || undefined,
+      organization: (form.elements.namedItem("organization") as HTMLInputElement).value.trim(),
+      service_area: (form.elements.namedItem("service")      as HTMLSelectElement).value,
+      challenge:    (form.elements.namedItem("challenge")    as HTMLInputElement).value.trim(),
       message:      (form.elements.namedItem("message")      as HTMLTextAreaElement).value.trim(),
+      timestamp:    new Date().toISOString(),
     };
 
-    const { error: sbError } = await supabase
-      .from("contact_inquiries")
-      .insert(data);
-
-    if (sbError) {
-      setError("Something went wrong. Please try again or email us directly at morningedge@proton.me");
+    if (!SHEET_WEBHOOK_URL) {
+      setError("Form is not yet configured. Please email us directly at morningedge@proton.me");
       setLoading(false);
       return;
     }
 
-    setSent(true);
-    setLoading(false);
+    try {
+      const res = await fetch(SHEET_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (!res.ok || result.result !== "success") {
+        throw new Error(result.error || "Webhook did not confirm success");
+      }
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly at morningedge@proton.me");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (sent) {
