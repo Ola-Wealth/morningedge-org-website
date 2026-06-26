@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* ── MorningEdge brand design system ────────────────────────────────────── */
+:root {
+  /* Palette */
+  --c-primary:      #0A0A0A;   /* brand black — dark backgrounds, headings */
+  --c-secondary:    #4A4A4A;   /* mid gray — secondary text */
+  --c-text:         #0A0A0A;   /* body text */
+  --c-accent:       #1A1AB5;   /* brand navy blue — CTAs, highlights, labels */
+  --c-accent-dark:  #1515A3;   /* hover navy */
+  --c-cream:        #FFFFFF;   /* white — on-dark body text */
+  --c-bg-warm:      #F5F5F5;   /* brand light gray — default bg */
+  --c-bg-border:    #E5E5E5;   /* dividers */
+  --c-mid:          #6B6B6B;   /* mid gray */
+  --c-dark:         #0A0A0A;   /* brand black */
+  --c-white:        #FFFFFF;
+}
+
+body {
+  background: var(--c-bg-warm);
+  color: var(--c-text);
+  font-family: var(--font-dm-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
