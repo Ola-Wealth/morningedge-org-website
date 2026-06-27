@@ -33,7 +33,7 @@ export default function Footer() {
             A business operations and AI systems consultancy. We build the structures, systems, and strategies that allow organizations to scale with intention.
           </p>
           <div className="flex flex-col gap-1.5 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            <a href="mailto:morningedge@proton.me" className="text-[#6B6B6B] hover:text-[#FFFFFF] transition-colors">morningedge@proton.me</a>
+            <a href="mailto:info@morningedgesystems.com" className="text-[#6B6B6B] hover:text-[#FFFFFF] transition-colors">info@morningedgesystems.com</a>
             <a href="tel:+2348100526153" className="text-[#6B6B6B] hover:text-[#FFFFFF] transition-colors">+234 810 052 6153</a>
             <span className="text-[#6B6B6B]">Lagos, Nigeria</span>
           </div>
@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#22D3EE] font-medium mb-2" style={{ fontFamily: "var(--font-dm-sans)" }}>Connect</p>
           <div className="flex items-center gap-4">
-            <a href="#" aria-label="LinkedIn" className="text-[#6B6B6B] hover:text-[#FFFFFF] transition-colors">
+            <a href="https://linkedin.com/company/morningedge" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[#6B6B6B] hover:text-[#FFFFFF] transition-colors">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />

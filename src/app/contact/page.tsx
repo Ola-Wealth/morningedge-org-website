@@ -28,7 +28,7 @@ function ContactForm() {
     };
 
     if (!SHEET_WEBHOOK_URL) {
-      setError("Form is not yet configured. Please email us directly at morningedge@proton.me");
+      setError("Form is not yet configured. Please email us directly at info@morningedgesystems.com");
       setLoading(false);
       return;
     }
@@ -46,7 +46,7 @@ function ContactForm() {
       }
       setSent(true);
     } catch {
-      setError("Something went wrong. Please try again or email us directly at morningedge@proton.me");
+      setError("Something went wrong. Please try again or email us directly at info@morningedgesystems.com");
     } finally {
       setLoading(false);
     }
@@ -203,10 +203,10 @@ export default function ContactPage() {
                     <div>
                       <p className="text-[#0A0A0A] text-xs font-bold uppercase tracking-wide mb-1">Email</p>
                       <a
-                        href="mailto:morningedge@proton.me"
+                        href="mailto:info@morningedgesystems.com"
                         className="text-[#4A4A4A] text-sm hover:text-[#1A1AB5] transition-colors"
                       >
-                        morningedge@proton.me
+                        info@morningedgesystems.com
                       </a>
                     </div>
                   </div>
