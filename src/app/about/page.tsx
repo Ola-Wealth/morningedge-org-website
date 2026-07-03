@@ -83,7 +83,7 @@ export default function AboutPage() {
                 alt="MorningEdge Systems team in session"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-[center_28%]"
                 sizes="(max-width: 1280px) 100vw, 1280px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />

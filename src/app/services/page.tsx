@@ -24,6 +24,7 @@ const services = [
     title: "Operations Architecture",
     slug: "operations",
     image: "/pictures/service-operations.jpg",
+    position: "object-center",
     tagline: "Structure is not bureaucracy. It is the foundation of everything else.",
     paragraphs: [
       "Most organizations are not failing because of bad strategy. They are failing because their internal architecture cannot carry the weight of their ambition. Processes are undefined or undocumented. Decisions are made inconsistently. Accountability lives in relationships rather than systems. And the result is a business that depends on a few people working at unsustainable intensity to hold everything together.",
@@ -44,6 +45,7 @@ const services = [
     title: "AI Systems Integration",
     slug: "ai-systems",
     image: "/pictures/service-ai.jpg",
+    position: "object-center",
     tagline: "The right AI implementation does not make you look modern. It makes you execute better.",
     paragraphs: [
       "Most AI implementations fail before they start. Not because the technology is wrong, but because the problem definition is wrong. Organizations chase tools before they understand their bottlenecks. They automate the visible before they diagnose the real. And the result is AI investment that produces noise rather than signal.",
@@ -63,7 +65,8 @@ const services = [
     icon: <GraduationCap size={22} />,
     title: "Executive Development",
     slug: "executive-development",
-    image: "/pictures/service-speaking.jpg",
+    image: "/pictures/IMG_342_2.jpeg",
+    position: "object-[center_18%]",
     tagline: "Knowledge that does not change behavior does not count.",
     paragraphs: [
       "Strategy is the easiest thing to discuss and the hardest thing to install. Most leadership teams understand what they should be doing. The gap is in the thinking frameworks, leadership disciplines, and organizational habits that make disciplined execution possible. Understanding is not the constraint. Practice is.",
@@ -135,7 +138,7 @@ export default function ServicesPage() {
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className={`object-cover ${service.position}`}
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/10 to-transparent" />
