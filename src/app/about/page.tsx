@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "About the Firm",
   description:
     "MorningEdge Systems is a business operations and AI consultancy built on the conviction that execution is not an accident — it is architecture. Learn about our firm, founding story, and operating principles.",
-  alternates: { canonical: "https://morningedgesystems.com/about" },
+  alternates: { canonical: "https://www.morningedgesystems.com/about" },
   openGraph: {
     title: "About the Firm | MorningEdge Systems",
     description:
       "Founded in 2022, MorningEdge Systems helps organizations move from fragmented execution to structured, scalable systems. Learn how we work.",
-    url: "https://morningedgesystems.com/about",
+    url: "https://www.morningedgesystems.com/about",
   },
 };
 

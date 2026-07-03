@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "MorningEdge Systems delivers three core services: Operations Architecture, AI Systems Integration, and Executive Development — for organizations serious about building businesses that execute.",
-  alternates: { canonical: "https://morningedgesystems.com/services" },
+  alternates: { canonical: "https://www.morningedgesystems.com/services" },
   openGraph: {
     title: "Services | MorningEdge Systems",
     description:
       "Operations architecture, AI systems integration, and executive development. Three disciplines. One outcome: a business built to execute.",
-    url: "https://morningedgesystems.com/services",
+    url: "https://www.morningedgesystems.com/services",
   },
 };
 

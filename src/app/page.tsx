@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: "MorningEdge Systems | We Build Businesses That Execute.",
   description:
     "MorningEdge Systems is a business operations and AI consultancy. We build the structures, systems, and strategies that allow organizations to scale with intention. Based in Lagos, Nigeria.",
-  alternates: { canonical: "https://morningedgesystems.com" },
+  alternates: { canonical: "https://www.morningedgesystems.com" },
   openGraph: {
     title: "MorningEdge Systems | We Build Businesses That Execute.",
     description:
       "Operations architecture, AI systems integration, and executive development for founders and executives serious about building businesses that execute.",
-    url: "https://morningedgesystems.com",
+    url: "https://www.morningedgesystems.com",
   },
 };
 
@@ -22,8 +22,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "MorningEdge Systems",
-  url: "https://morningedgesystems.com",
-  logo: "https://morningedgesystems.com/logo.png",
+  url: "https://www.morningedgesystems.com",
+  logo: "https://www.morningedgesystems.com/logo.png",
   description:
     "Business operations and AI systems consultancy helping founders, executives, and organizations build structures that scale.",
   email: "info@morningedgesystems.com",
@@ -37,7 +37,7 @@ const jsonLd = {
     "@type": "Person",
     name: "Olamilekan E. Wealth",
     jobTitle: "Lead Consultant",
-    url: "https://morningedgesystems.com",
+    url: "https://www.morningedgesystems.com",
   },
   serviceType: [
     "Operations Architecture",

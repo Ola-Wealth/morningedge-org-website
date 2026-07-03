@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://morningedgesystems.com"),
+  metadataBase: new URL("https://www.morningedgesystems.com"),
   title: {
     default: "MorningEdge Systems | Business Operations & AI Consultancy",
     template: "%s | MorningEdge Systems",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     "MorningEdge Systems",
     "Olamilekan Wealth",
   ],
-  authors: [{ name: "Olamilekan E. Wealth", url: "https://morningedgesystems.com" }],
+  authors: [{ name: "Olamilekan E. Wealth", url: "https://www.morningedgesystems.com" }],
   creator: "MorningEdge Systems",
   openGraph: {
     title: "MorningEdge Systems | We Build Businesses That Execute.",
     description:
       "Operations architecture, AI systems integration, and executive development for organizations serious about building businesses that execute.",
     siteName: "MorningEdge Systems",
-    url: "https://morningedgesystems.com",
+    url: "https://www.morningedgesystems.com",
     type: "website",
     locale: "en_US",
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://morningedgesystems.com",
+    canonical: "https://www.morningedgesystems.com",
   },
 };
 
