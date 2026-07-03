@@ -8,7 +8,47 @@ import { Settings2, BrainCircuit, GraduationCap, Search, Compass, Zap, RefreshCw
 export const metadata: Metadata = {
   title: "MorningEdge Systems | We Build Businesses That Execute.",
   description:
-    "MorningEdge is a business operations and AI systems consultancy helping founders, executives, and growing organizations design the systems that scale.",
+    "MorningEdge Systems is a business operations and AI consultancy. We build the structures, systems, and strategies that allow organizations to scale with intention. Based in Lagos, Nigeria.",
+  alternates: { canonical: "https://morningedgesystems.com" },
+  openGraph: {
+    title: "MorningEdge Systems | We Build Businesses That Execute.",
+    description:
+      "Operations architecture, AI systems integration, and executive development for founders and executives serious about building businesses that execute.",
+    url: "https://morningedgesystems.com",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "MorningEdge Systems",
+  url: "https://morningedgesystems.com",
+  logo: "https://morningedgesystems.com/logo.png",
+  description:
+    "Business operations and AI systems consultancy helping founders, executives, and organizations build structures that scale.",
+  email: "info@morningedgesystems.com",
+  telephone: "+2348100526153",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lagos",
+    addressCountry: "NG",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Olamilekan E. Wealth",
+    jobTitle: "Lead Consultant",
+    url: "https://morningedgesystems.com",
+  },
+  serviceType: [
+    "Operations Architecture",
+    "AI Systems Integration",
+    "Executive Development",
+  ],
+  areaServed: {
+    "@type": "Place",
+    name: "Global",
+  },
+  sameAs: ["https://linkedin.com/company/morningedge"],
 };
 
 const services = [
@@ -78,6 +118,10 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── HERO ── */}
       <section className="relative min-h-[88vh] flex flex-col justify-between pt-[100px] pb-16 border-b border-[#E5E5E5] overflow-hidden">
         {/* Cinematic parallax background */}

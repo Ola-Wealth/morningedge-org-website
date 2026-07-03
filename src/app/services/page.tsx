@@ -4,9 +4,16 @@ import FadeIn from "@/components/FadeIn";
 import { Settings2, BrainCircuit, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services | MorningEdge Systems",
+  title: "Services",
   description:
-    "MorningEdge delivers operations architecture, AI systems integration, and executive development for organizations serious about building businesses that execute.",
+    "MorningEdge Systems delivers three core services: Operations Architecture, AI Systems Integration, and Executive Development — for organizations serious about building businesses that execute.",
+  alternates: { canonical: "https://morningedgesystems.com/services" },
+  openGraph: {
+    title: "Services | MorningEdge Systems",
+    description:
+      "Operations architecture, AI systems integration, and executive development. Three disciplines. One outcome: a business built to execute.",
+    url: "https://morningedgesystems.com/services",
+  },
 };
 
 const services = [

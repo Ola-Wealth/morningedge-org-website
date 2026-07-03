@@ -19,15 +19,64 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MorningEdge Systems | Business Operations & AI Systems Consultancy",
+  metadataBase: new URL("https://morningedgesystems.com"),
+  title: {
+    default: "MorningEdge Systems | Business Operations & AI Consultancy",
+    template: "%s | MorningEdge Systems",
+  },
   description:
-    "MorningEdge is a business operations and AI systems consultancy helping founders, executives, and growing organizations build structures that scale.",
+    "MorningEdge Systems is a business operations and AI systems consultancy helping founders, executives, and growing organizations build structures, systems, and strategies that scale with intention.",
+  keywords: [
+    "business operations consultancy",
+    "AI systems integration",
+    "executive development",
+    "operations architecture",
+    "business consulting Lagos",
+    "AI consulting Nigeria",
+    "organizational strategy",
+    "workflow automation",
+    "MorningEdge Systems",
+    "Olamilekan Wealth",
+  ],
+  authors: [{ name: "Olamilekan E. Wealth", url: "https://morningedgesystems.com" }],
+  creator: "MorningEdge Systems",
   openGraph: {
     title: "MorningEdge Systems | We Build Businesses That Execute.",
     description:
-      "Operations architecture, AI systems integration, and executive development for organizations serious about scale.",
+      "Operations architecture, AI systems integration, and executive development for organizations serious about building businesses that execute.",
     siteName: "MorningEdge Systems",
+    url: "https://morningedgesystems.com",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MorningEdge Systems — We Build Businesses That Execute.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MorningEdge Systems | We Build Businesses That Execute.",
+    description:
+      "Operations architecture, AI systems integration, and executive development for organizations serious about scale.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://morningedgesystems.com",
   },
 };
 
