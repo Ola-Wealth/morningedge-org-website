@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import { Settings2, BrainCircuit, GraduationCap } from "lucide-react";
+import PillBadge from "@/components/PillBadge";
+import { Settings2, BrainCircuit, GraduationCap, ArrowRight, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -18,9 +20,10 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: <Settings2 size={28} />,
+    icon: <Settings2 size={22} />,
     title: "Operations Architecture",
     slug: "operations",
+    image: "/pictures/service-operations.jpg",
     tagline: "Structure is not bureaucracy. It is the foundation of everything else.",
     paragraphs: [
       "Most organizations are not failing because of bad strategy. They are failing because their internal architecture cannot carry the weight of their ambition. Processes are undefined or undocumented. Decisions are made inconsistently. Accountability lives in relationships rather than systems. And the result is a business that depends on a few people working at unsustainable intensity to hold everything together.",
@@ -37,9 +40,10 @@ const services = [
     outcome: "The result: an operation your team can own and run. One that scales without falling apart.",
   },
   {
-    icon: <BrainCircuit size={28} />,
+    icon: <BrainCircuit size={22} />,
     title: "AI Systems Integration",
     slug: "ai-systems",
+    image: "/pictures/service-ai.jpg",
     tagline: "The right AI implementation does not make you look modern. It makes you execute better.",
     paragraphs: [
       "Most AI implementations fail before they start. Not because the technology is wrong, but because the problem definition is wrong. Organizations chase tools before they understand their bottlenecks. They automate the visible before they diagnose the real. And the result is AI investment that produces noise rather than signal.",
@@ -56,9 +60,10 @@ const services = [
     outcome: "The result: faster decisions, fewer errors, and AI that compounds in value over time.",
   },
   {
-    icon: <GraduationCap size={28} />,
+    icon: <GraduationCap size={22} />,
     title: "Executive Development",
     slug: "executive-development",
+    image: "/pictures/service-speaking.jpg",
     tagline: "Knowledge that does not change behavior does not count.",
     paragraphs: [
       "Strategy is the easiest thing to discuss and the hardest thing to install. Most leadership teams understand what they should be doing. The gap is in the thinking frameworks, leadership disciplines, and organizational habits that make disciplined execution possible. Understanding is not the constraint. Practice is.",
@@ -79,109 +84,160 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-[#0A0A0A] py-28 px-6">
+      {/* ── HEADER ── */}
+      <section className="bg-white pt-16 pb-12 px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <p className="text-[#22D3EE] text-xs font-bold uppercase tracking-[0.2em] mb-6">Services</p>
-            <h1
-              className="text-5xl lg:text-6xl font-black text-white max-w-3xl leading-tight mb-8"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Three disciplines. One outcome.
-            </h1>
-            <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
-              Every MorningEdge engagement is designed to remove a specific constraint between where your organization is and where it needs to be. We work across three interconnected service areas.
-            </p>
+            <div className="flex flex-col items-start gap-6">
+              <PillBadge>Services</PillBadge>
+              <h1
+                className="text-[#0A0A0A] font-black leading-[1.05] tracking-tight max-w-3xl"
+                style={{ fontSize: "clamp(2.4rem, 5.5vw, 72px)", letterSpacing: "-0.03em" }}
+              >
+                Three disciplines.<br />
+                <span className="text-[#1A1AB5]">One outcome.</span>
+              </h1>
+              <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-2xl">
+                Every MorningEdge engagement is designed to remove a specific constraint between where your organization is and where it needs to be. We work across three interconnected service areas.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Quick nav pills */}
+          <FadeIn delay={0.1}>
+            <div className="flex flex-wrap gap-2.5 mt-10">
+              {services.map((s) => (
+                <a
+                  key={s.slug}
+                  href={`#${s.slug}`}
+                  className="inline-flex items-center gap-2 bg-[#F5F6F8] border border-[#EEF0F2] text-[#0A0A0A] rounded-full px-5 py-2.5 text-sm font-semibold hover:bg-[#1A1AB5] hover:text-white hover:border-[#1A1AB5] transition-colors cursor-pointer"
+                >
+                  {s.title}
+                </a>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Services */}
+      {/* ── SERVICES ── */}
       {services.map((service, i) => (
         <section
           key={service.slug}
           id={service.slug}
-          className={i % 2 === 0 ? "bg-white py-24 px-6" : "bg-[#F7F7F7] py-24 px-6"}
+          className={`py-16 lg:py-20 px-4 sm:px-6 lg:px-10 scroll-mt-24 ${i % 2 === 0 ? "bg-[#F5F6F8]" : "bg-white"}`}
         >
           <div className="max-w-7xl mx-auto">
+            {/* Photo banner */}
             <FadeIn>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Content */}
-                <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
-                  <div className="text-[#1A1AB5] w-12 h-12 flex items-center justify-center bg-[#1A1AB5]/10 mb-6">
-                    {service.icon}
+              <div className="relative rounded-[28px] overflow-hidden h-[260px] lg:h-[340px] mb-10">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/10 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                  <div>
+                    <div className="w-11 h-11 rounded-full bg-white text-[#1A1AB5] flex items-center justify-center shadow-sm mb-4">
+                      {service.icon}
+                    </div>
+                    <h2 className="text-white font-black tracking-tight" style={{ fontSize: "clamp(1.7rem, 3vw, 44px)", letterSpacing: "-0.02em" }}>
+                      {service.title}
+                    </h2>
                   </div>
-                  <h2
-                    className="text-4xl font-bold text-[#0A0A0A] mb-4"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
-                    {service.title}
-                  </h2>
-                  <p className="text-[#1A1AB5] text-sm font-semibold mb-8 italic">&ldquo;{service.tagline}&rdquo;</p>
+                  <span className="hidden sm:inline-flex bg-white/15 backdrop-blur border border-white/25 text-white rounded-full px-4 py-2 text-xs font-semibold">
+                    0{i + 1} / 03
+                  </span>
+                </div>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+              {/* Content */}
+              <FadeIn className="lg:col-span-3">
+                <div>
+                  <p className="text-[#1A1AB5] text-base lg:text-lg font-bold mb-7 leading-snug">
+                    &ldquo;{service.tagline}&rdquo;
+                  </p>
                   <div className="flex flex-col gap-4 mb-8">
                     {service.paragraphs.map((p, j) => (
-                      <p key={j} className="text-[#4A4A4A] leading-relaxed text-sm">
+                      <p key={j} className="text-[#4A4A4A] leading-relaxed text-sm sm:text-[15px]">
                         {p}
                       </p>
                     ))}
                   </div>
-                  <div className="bg-[#1A1AB5]/5 border border-[#1A1AB5]/20 p-6">
-                    <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-widest mb-3">Engagement Outcomes</p>
+                  <div className="bg-[#1A1AB5]/5 border border-[#1A1AB5]/15 rounded-2xl p-6">
+                    <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-widest mb-2.5">Engagement Outcomes</p>
                     <p className="text-[#0A0A0A] text-sm font-semibold leading-relaxed">{service.outcome}</p>
                   </div>
                 </div>
+              </FadeIn>
 
-                {/* Deliverables */}
-                <div className={i % 2 !== 0 ? "lg:order-1" : ""}>
-                  <div className="bg-[#0A0A0A] p-10">
-                    <p className="text-[#22D3EE] text-xs font-bold uppercase tracking-[0.2em] mb-6">What We Deliver</p>
-                    <div className="flex flex-col gap-4">
-                      {service.deliverables.map((d, j) => (
-                        <div key={j} className="flex items-start gap-4">
-                          <span className="text-[#22D3EE] font-bold text-sm mt-0.5 flex-shrink-0">
-                            {String(j + 1).padStart(2, "0")}
-                          </span>
-                          <p className="text-gray-300 text-sm leading-relaxed">{d}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-10 pt-8 border-t border-white/10">
-                      <Link
-                        href="/contact"
-                        className="inline-block bg-[#1A1AB5] text-white px-8 py-4 text-sm font-semibold hover:bg-[#1515A3] transition-colors"
-                      >
-                        Engage MorningEdge
-                      </Link>
-                    </div>
+              {/* Deliverables card */}
+              <FadeIn delay={0.1} className="lg:col-span-2">
+                <div className="bg-[#0A0A0A] rounded-[28px] p-8 lg:p-9 lg:sticky lg:top-24">
+                  <PillBadge dark>What We Deliver</PillBadge>
+                  <div className="flex flex-col gap-3.5 mt-7">
+                    {service.deliverables.map((d, j) => (
+                      <div key={j} className="flex items-start gap-3.5">
+                        <span className="w-6 h-6 rounded-full bg-[#22D3EE]/15 text-[#22D3EE] flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                        <p className="text-gray-300 text-sm leading-relaxed">{d}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-9 pt-7 border-t border-white/10">
+                    <Link
+                      href="/contact"
+                      className="group inline-flex items-center gap-3 bg-white text-[#0A0A0A] rounded-full pl-6 pr-2 py-2 text-sm font-semibold hover:bg-[#22D3EE] transition-colors cursor-pointer"
+                    >
+                      Engage MorningEdge
+                      <span className="w-8 h-8 rounded-full bg-[#0A0A0A] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                        <ArrowRight size={15} />
+                      </span>
+                    </Link>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           </div>
         </section>
       ))}
 
-      {/* CTA */}
-      <section className="bg-[#0A0A0A] py-24 px-6 text-center">
-        <FadeIn>
-          <p className="text-[#22D3EE] text-xs font-bold uppercase tracking-[0.2em] mb-6">Start Here</p>
-          <h2
-            className="text-4xl font-bold text-white mb-6"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Not sure which engagement is right?
-          </h2>
-          <p className="text-gray-400 mb-10 max-w-xl mx-auto">
-            Tell us what you are building and where you are stuck. We will identify the right entry point and whether MorningEdge is the right fit.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-[#1A1AB5] text-white px-10 py-5 text-sm font-semibold hover:bg-[#1515A3] transition-colors"
-          >
-            Start the Conversation
-          </Link>
-        </FadeIn>
+      {/* ── CTA CARD ── */}
+      <section className="bg-white py-20 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <FadeIn>
+            <div className="relative bg-[#0A0A0A] rounded-[32px] overflow-hidden px-8 py-14 lg:px-16 lg:py-18 text-center">
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[#1A1AB5]/25 blur-3xl" />
+              <div className="relative flex flex-col items-center gap-6">
+                <PillBadge dark>Start Here</PillBadge>
+                <h2
+                  className="text-white font-black tracking-tight max-w-2xl"
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 44px)", letterSpacing: "-0.02em", lineHeight: 1.1 }}
+                >
+                  Not sure which engagement is right?
+                </h2>
+                <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
+                  Tell us what you are building and where you are stuck. We will identify the right entry point and whether MorningEdge is the right fit.
+                </p>
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-3 bg-white text-[#0A0A0A] rounded-full pl-7 pr-2 py-2 text-sm font-semibold hover:bg-[#22D3EE] transition-colors cursor-pointer"
+                >
+                  Start the Conversation
+                  <span className="w-9 h-9 rounded-full bg-[#0A0A0A] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </section>
     </>
   );

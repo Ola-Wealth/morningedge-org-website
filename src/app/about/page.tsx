@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import PillBadge from "@/components/PillBadge";
+import { ArrowRight, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About the Firm",
@@ -44,40 +47,69 @@ const milestones = [
   { year: "2026", event: "MorningEdge Systems operates across three disciplines: Operations, AI Systems, Executive Development." },
 ];
 
+const differences = [
+  "We lead with diagnosis, not prescription.",
+  "We build for the organization, not for the engagement.",
+  "We measure success by execution outcomes, not deliverable count.",
+  "We work in the real workflow, not around it.",
+];
+
 export default function AboutPage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-[#0A0A0A] py-28 px-6">
+      {/* ── HEADER ── */}
+      <section className="bg-white pt-16 pb-12 px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <p className="text-[#22D3EE] text-xs font-bold uppercase tracking-[0.2em] mb-6">About the Firm</p>
-            <h1
-              className="text-5xl lg:text-6xl font-black text-white max-w-3xl leading-tight mb-8"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Built on a single conviction.
-            </h1>
-            <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
-              MorningEdge was founded on the belief that most business problems are not talent problems. They are systems problems. And systems problems have structural solutions.
-            </p>
+            <div className="flex flex-col items-start gap-6">
+              <PillBadge>About the Firm</PillBadge>
+              <h1
+                className="text-[#0A0A0A] font-black leading-[1.05] tracking-tight max-w-3xl"
+                style={{ fontSize: "clamp(2.4rem, 5.5vw, 72px)", letterSpacing: "-0.03em" }}
+              >
+                Built on a single <span className="text-[#1A1AB5]">conviction.</span>
+              </h1>
+              <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-2xl">
+                MorningEdge was founded on the belief that most business problems are not talent problems. They are systems problems. And systems problems have structural solutions.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Header image card */}
+          <FadeIn delay={0.15}>
+            <div className="relative rounded-[28px] overflow-hidden h-[320px] lg:h-[440px] mt-12">
+              <Image
+                src="/pictures/about-header.jpg"
+                alt="MorningEdge Systems team in session"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-white text-lg lg:text-xl font-bold max-w-lg leading-snug">
+                  Most business problems are systems problems. We build the systems.
+                </p>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="bg-white py-24 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      {/* ── MISSION + DIFFERENCE ── */}
+      <section className="bg-white py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
           <FadeIn direction="left">
-            <div>
-              <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-[0.2em] mb-6">Our Mission</p>
+            <div className="flex flex-col items-start gap-6">
+              <PillBadge>Our Mission</PillBadge>
               <h2
-                className="text-3xl font-bold text-[#0A0A0A] leading-snug mb-6"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
+                className="text-[#0A0A0A] font-black tracking-tight leading-tight"
+                style={{ fontSize: "clamp(1.6rem, 2.6vw, 38px)", letterSpacing: "-0.02em" }}
               >
                 To design the operational architecture that allows organizations to scale with intention and execute with discipline.
               </h2>
-              <p className="text-[#4A4A4A] leading-relaxed mb-4">
+              <p className="text-[#4A4A4A] leading-relaxed">
                 MorningEdge works with founders, executives, and leadership teams who have recognized that ambition alone does not produce results. Structure produces results. Systems produce results. Disciplined execution, repeated consistently over time, produces results.
               </p>
               <p className="text-[#4A4A4A] leading-relaxed">
@@ -87,53 +119,48 @@ export default function AboutPage() {
           </FadeIn>
 
           <FadeIn direction="right" delay={0.1}>
-            <div className="bg-[#F7F7F7] p-10 flex flex-col gap-6">
-              <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-[0.2em]">The MorningEdge Difference</p>
-              {[
-                "We lead with diagnosis, not prescription.",
-                "We build for the organization, not for the engagement.",
-                "We measure success by execution outcomes, not deliverable count.",
-                "We work in the real workflow, not around it.",
-              ].map((point) => (
-                <div key={point} className="flex items-start gap-4">
-                  <span className="w-1 h-5 bg-[#1A1AB5] mt-0.5 flex-shrink-0" />
-                  <p className="text-[#4A4A4A] text-sm leading-relaxed">{point}</p>
-                </div>
-              ))}
+            <div className="bg-[#F5F6F8] rounded-[28px] p-8 lg:p-10 flex flex-col gap-6">
+              <PillBadge>The MorningEdge Difference</PillBadge>
+              <div className="flex flex-col gap-4">
+                {differences.map((point) => (
+                  <div key={point} className="flex items-start gap-4 bg-white rounded-2xl px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1AB5]/10 text-[#1A1AB5] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={13} strokeWidth={3} />
+                    </span>
+                    <p className="text-[#0A0A0A] text-sm font-medium leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="bg-[#0A0A0A] py-24 px-6">
+      {/* ── COMMITMENTS ── */}
+      <section className="bg-[#F5F6F8] py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <p className="text-[#22D3EE] text-xs font-bold uppercase tracking-[0.2em] mb-6">Our Commitments</p>
-            <h2
-              className="text-4xl font-bold text-white mb-16 max-w-xl"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Three principles. Every engagement.
-            </h2>
+            <div className="flex flex-col items-start gap-5 mb-12">
+              <PillBadge>Our Commitments</PillBadge>
+              <h2
+                className="text-[#0A0A0A] font-black tracking-tight"
+                style={{ fontSize: "clamp(1.9rem, 3.5vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1.08 }}
+              >
+                Three principles. Every engagement.
+              </h2>
+            </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {values.map((v, i) => (
-              <FadeIn key={v.number} delay={i * 0.1}>
-                <div className="border border-white/10 p-8 flex flex-col gap-4 h-full">
-                  <span
-                    className="text-5xl font-black text-white/10"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
-                    {v.number}
-                  </span>
-                  <h3
-                    className="text-xl font-bold text-white"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
-                    {v.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
+              <FadeIn key={v.number} delay={i * 0.08}>
+                <div className={`rounded-[24px] p-8 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-1.5 ${
+                  i === 1
+                    ? "bg-[#0A0A0A] hover:shadow-[0_24px_48px_-24px_rgba(10,10,10,0.5)]"
+                    : "bg-white border border-[#EEF0F2] hover:shadow-[0_24px_48px_-24px_rgba(10,10,10,0.18)]"
+                }`}>
+                  <span className={`text-4xl font-black ${i === 1 ? "text-white/15" : "text-[#E5E7EB]"}`}>{v.number}</span>
+                  <h3 className={`text-xl font-bold ${i === 1 ? "text-white" : "text-[#0A0A0A]"}`}>{v.title}</h3>
+                  <p className={`text-sm leading-relaxed ${i === 1 ? "text-gray-400" : "text-[#4A4A4A]"}`}>{v.description}</p>
                 </div>
               </FadeIn>
             ))}
@@ -141,31 +168,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="bg-[#F7F7F7] py-24 px-6">
+      {/* ── TIMELINE ── */}
+      <section className="bg-white py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-[0.2em] mb-6">The Firm&apos;s History</p>
-            <h2
-              className="text-4xl font-bold text-[#0A0A0A] mb-16"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              How we got here.
-            </h2>
+            <div className="flex flex-col items-start gap-5 mb-12">
+              <PillBadge>The Firm&apos;s History</PillBadge>
+              <h2
+                className="text-[#0A0A0A] font-black tracking-tight"
+                style={{ fontSize: "clamp(1.9rem, 3.5vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1.08 }}
+              >
+                How we got here.
+              </h2>
+            </div>
           </FadeIn>
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col">
             {milestones.map((m, i) => (
-              <FadeIn key={m.year} delay={i * 0.08}>
-                <div className="flex gap-8 items-start pb-10 relative">
+              <FadeIn key={m.year} delay={i * 0.06}>
+                <div className="group flex gap-6 sm:gap-8 items-stretch relative">
                   <div className="flex flex-col items-center">
-                    <div className="w-3 h-3 bg-[#1A1AB5] mt-1.5 flex-shrink-0" />
-                    {i < milestones.length - 1 && (
-                      <div className="w-px flex-1 bg-[#1A1AB5]/20 mt-1" style={{ minHeight: "3rem" }} />
-                    )}
+                    <div className="w-10 h-10 rounded-full bg-[#F5F6F8] border border-[#E5E7EB] text-[#1A1AB5] flex items-center justify-center text-[11px] font-black flex-shrink-0 transition-colors duration-300 group-hover:bg-[#1A1AB5] group-hover:text-white">
+                      {m.year.slice(2)}
+                    </div>
+                    {i < milestones.length - 1 && <div className="w-px flex-1 bg-[#E5E7EB] my-2" />}
                   </div>
-                  <div className="pb-2">
-                    <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-widest mb-1">{m.year}</p>
-                    <p className="text-[#4A4A4A] text-sm leading-relaxed">{m.event}</p>
+                  <div className="pb-10">
+                    <p className="text-[#1A1AB5] text-xs font-bold uppercase tracking-widest mb-1.5">{m.year}</p>
+                    <p className="text-[#4A4A4A] text-sm sm:text-base leading-relaxed">{m.event}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -174,25 +203,36 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#1A1AB5] py-20 px-6 text-center">
-        <FadeIn>
-          <h2
-            className="text-3xl font-bold text-white mb-4"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            The right engagement starts with the right conversation.
-          </h2>
-          <p className="text-blue-200 mb-8 max-w-xl mx-auto">
-            If you are building something that requires the kind of operational discipline MorningEdge brings, we want to hear about it.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-[#1A1AB5] px-10 py-4 text-sm font-semibold hover:bg-blue-50 transition-colors"
-          >
-            Contact the Firm
-          </Link>
-        </FadeIn>
+      {/* ── CTA CARD ── */}
+      <section className="bg-white pb-20 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <FadeIn>
+            <div className="relative bg-[#0A0A0A] rounded-[32px] overflow-hidden px-8 py-14 lg:px-16 lg:py-18 text-center">
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[#1A1AB5]/25 blur-3xl" />
+              <div className="relative flex flex-col items-center gap-6">
+                <PillBadge dark>Work With Us</PillBadge>
+                <h2
+                  className="text-white font-black tracking-tight max-w-2xl"
+                  style={{ fontSize: "clamp(1.8rem, 3vw, 44px)", letterSpacing: "-0.02em", lineHeight: 1.1 }}
+                >
+                  The right engagement starts with the right conversation.
+                </h2>
+                <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
+                  If you are building something that requires the kind of operational discipline MorningEdge brings, we want to hear about it.
+                </p>
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-3 bg-white text-[#0A0A0A] rounded-full pl-7 pr-2 py-2 text-sm font-semibold hover:bg-[#22D3EE] transition-colors cursor-pointer"
+                >
+                  Contact the Firm
+                  <span className="w-9 h-9 rounded-full bg-[#0A0A0A] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </section>
     </>
   );

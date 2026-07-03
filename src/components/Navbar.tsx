@@ -17,8 +17,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#F5F5F5] border-b border-[#E5E5E1]">
-      <div className="max-w-[1920px] mx-auto px-8 lg:px-12 flex items-center justify-between py-5">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[#EEF0F2]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.png" alt="MorningEdge" width={32} height={32} className="h-8 w-8 object-contain" />
           <div className="flex flex-col leading-none">
@@ -48,7 +48,7 @@ export default function Navbar() {
           </ul>
           <Link
             href="/contact"
-            className="bg-[#0A0A0A] text-[#E0E0CC] px-5 py-2.5 text-xs font-medium uppercase tracking-widest hover:bg-[#101D29] transition-colors"
+            className="bg-[#0A0A0A] text-white rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-widest hover:bg-[#1A1AB5] transition-colors cursor-pointer"
             style={{ fontFamily: "var(--font-dm-sans)" }}
           >
             Engage Us
@@ -66,7 +66,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden fixed inset-0 top-[65px] bg-[#F5F5F5] z-40 flex flex-col items-center justify-center gap-10 border-t border-[#E5E5E1]">
+        <div className="md:hidden fixed inset-0 top-[65px] bg-white z-40 flex flex-col items-center justify-center gap-10 border-t border-[#EEF0F2]">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -83,7 +83,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="bg-[#0A0A0A] text-[#E0E0CC] px-8 py-4 text-xs font-medium uppercase tracking-widest"
+            className="bg-[#0A0A0A] text-white rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-widest"
             style={{ fontFamily: "var(--font-dm-sans)" }}
           >
             Engage Us
