@@ -33,7 +33,7 @@ export default function Footer() {
             A business operations and AI systems consultancy. We build the structures, systems, and strategies that allow organizations to scale with intention.
           </p>
           <div className="flex flex-col gap-1.5 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            <a href="mailto:info@morningedgesystems.com" className="text-[#9CA3AF] hover:text-[#FFFFFF] transition-colors">info@morningedgesystems.com</a>
+            <a href="mailto:hello@morningedgesystems.com" className="text-[#9CA3AF] hover:text-[#FFFFFF] transition-colors">hello@morningedgesystems.com</a>
             <a href="tel:+2348100526153" className="text-[#9CA3AF] hover:text-[#FFFFFF] transition-colors">+234 810 052 6153</a>
             <span className="text-[#9CA3AF]">Lagos, Nigeria</span>
           </div>

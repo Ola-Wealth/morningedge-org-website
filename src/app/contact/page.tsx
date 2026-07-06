@@ -32,7 +32,7 @@ function ContactForm() {
     };
 
     if (!SHEET_WEBHOOK_URL) {
-      setError("Form is not yet configured. Please email us directly at info@morningedgesystems.com");
+      setError("Form is not yet configured. Please email us directly at hello@morningedgesystems.com");
       setLoading(false);
       return;
     }
@@ -50,7 +50,7 @@ function ContactForm() {
       }
       setSent(true);
     } catch {
-      setError("Something went wrong. Please try again or email us directly at info@morningedgesystems.com");
+      setError("Something went wrong. Please try again or email us directly at hello@morningedgesystems.com");
     } finally {
       setLoading(false);
     }
@@ -139,8 +139,8 @@ const contactInfo = [
   {
     icon: <Mail size={16} />,
     label: "Email",
-    value: "info@morningedgesystems.com",
-    href: "mailto:info@morningedgesystems.com",
+    value: "hello@morningedgesystems.com",
+    href: "mailto:hello@morningedgesystems.com",
   },
   {
     icon: <Phone size={16} />,

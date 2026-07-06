@@ -27,7 +27,7 @@ const jsonLd = {
   logo: "https://www.morningedgesystems.com/logo.png",
   description:
     "Business operations and AI systems consultancy helping founders, executives, and organizations build structures that scale.",
-  email: "info@morningedgesystems.com",
+  email: "hello@morningedgesystems.com",
   telephone: "+2348100526153",
   address: {
     "@type": "PostalAddress",
