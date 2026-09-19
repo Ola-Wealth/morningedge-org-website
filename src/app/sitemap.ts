@@ -1,33 +1,28 @@
 import type { MetadataRoute } from "next";
+import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.morningedgesystems.com";
+  const base = site.url;
   const now = new Date();
 
-  return [
-    {
-      url: base,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${base}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/services`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/contact`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
+  const routes: { path: string; priority: number; freq: "monthly" | "yearly" }[] = [
+    { path: "", priority: 1, freq: "monthly" },
+    { path: "/ai-edge", priority: 0.9, freq: "monthly" },
+    { path: "/operations-core", priority: 0.9, freq: "monthly" },
+    { path: "/operations-core/erp", priority: 0.9, freq: "monthly" },
+    { path: "/operations-core/ai-integration", priority: 0.9, freq: "monthly" },
+    { path: "/adoption-standard", priority: 0.8, freq: "monthly" },
+    { path: "/approach", priority: 0.7, freq: "monthly" },
+    { path: "/about", priority: 0.7, freq: "monthly" },
+    { path: "/contact", priority: 0.7, freq: "yearly" },
+    { path: "/legal/privacy", priority: 0.3, freq: "yearly" },
+    { path: "/legal/terms", priority: 0.3, freq: "yearly" },
   ];
+
+  return routes.map((r) => ({
+    url: `${base}${r.path}`,
+    lastModified: now,
+    changeFrequency: r.freq,
+    priority: r.priority,
+  }));
 }

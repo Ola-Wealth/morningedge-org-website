@@ -1,84 +1,94 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { site } from "@/lib/site";
 
-// Editorial serif — close to Reckless GISI in lightness and refinement
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const fraunces = Fraunces({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  axes: ["opsz"],
 });
 
-// Clean geometric sans — close to Neue Haas Unica
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.morningedgesystems.com"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "MorningEdge Systems | Business Operations & AI Consultancy",
-    template: "%s | MorningEdge Systems",
+    default: "MorningEdge | Business Operations, People and Systems",
+    template: "%s | MorningEdge",
   },
   description:
-    "MorningEdge Systems is a business operations and AI systems consultancy helping founders, executives, and growing organizations build structures, systems, and strategies that scale with intention.",
+    "A Nigerian company loses output in two places: its people and its systems. MorningEdge fixes both. AI enablement for your workforce, and software that runs your operation on one system.",
   keywords: [
-    "business operations consultancy",
-    "AI systems integration",
-    "executive development",
-    "operations architecture",
-    "business consulting Lagos",
-    "AI consulting Nigeria",
-    "organizational strategy",
-    "workflow automation",
-    "MorningEdge Systems",
-    "Olamilekan Wealth",
+    "business operations Nigeria",
+    "ERPNext implementation Lagos",
+    "Microsoft 365 Copilot training",
+    "AI integration",
+    "AI enablement",
+    "enterprise resource planning Nigeria",
+    "operations consulting Lagos",
+    "MorningEdge",
   ],
-  authors: [{ name: "Olamilekan E. Wealth", url: "https://www.morningedgesystems.com" }],
-  creator: "MorningEdge Systems",
+  authors: [{ name: "Olamilekan E. Wealth", url: site.url }],
+  creator: site.legalName,
   openGraph: {
-    title: "MorningEdge Systems | We Build Businesses That Execute.",
+    title: "MorningEdge | We build businesses that execute.",
     description:
-      "Operations architecture, AI systems integration, and executive development for organizations serious about building businesses that execute.",
-    siteName: "MorningEdge Systems",
-    url: "https://www.morningedgesystems.com",
+      "AI enablement for your people. Software that runs your operation. Two products. One outcome. We write adoption into the contract.",
+    siteName: "MorningEdge",
+    url: site.url,
     type: "website",
-    locale: "en_US",
+    locale: "en_NG",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MorningEdge Systems | We Build Businesses That Execute.",
+    title: "MorningEdge | We build businesses that execute.",
     description:
-      "Operations architecture, AI systems integration, and executive development for organizations serious about scale.",
+      "AI enablement for your people. Software that runs your operation. Two products. One outcome.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  alternates: {
-    canonical: "https://www.morningedgesystems.com",
-  },
+  alternates: { canonical: site.url },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "MorningEdge",
+  legalName: site.legalName,
+  url: site.url,
+  logo: `${site.url}/logo.png`,
+  description:
+    "Business operations firm in Lagos, Nigeria. AI enablement for the workforce, and software that runs the operation on one system.",
+  email: site.email,
+  telephone: site.phone,
+  address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
+  founder: { "@type": "Person", name: "Olamilekan E. Wealth" },
+  foundingDate: "2022",
+  areaServed: { "@type": "Country", name: "Nigeria" },
+  sameAs: [site.linkedin],
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
-      <body className="min-h-full flex flex-col antialiased">
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+      </head>
+      <body className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

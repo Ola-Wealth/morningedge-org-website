@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start an engagement with MorningEdge Systems. Tell us about your organization and the challenge you are facing. We respond within 48 business hours.",
-  alternates: { canonical: "https://www.morningedgesystems.com/contact" },
-  openGraph: {
-    title: "Start an Engagement | MorningEdge Systems",
-    description:
-      "The right engagement starts with the right conversation. Reach out to MorningEdge Systems — we will tell you how we can help.",
-    url: "https://www.morningedgesystems.com/contact",
-  },
+    "Book a diagnostic with MorningEdge. Tell us about your company and what is breaking. Not every enquiry becomes an engagement, and we will say so plainly.",
+  alternates: { canonical: `${site.url}/contact` },
+  openGraph: { title: "Contact | MorningEdge", url: `${site.url}/contact` },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
