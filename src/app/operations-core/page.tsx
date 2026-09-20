@@ -44,23 +44,23 @@ export default function OperationsCorePage() {
       />
 
       {/* TWO LINES */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {lines.map((l, i) => (
               <Reveal key={l.title} delay={i * 100}>
                 <Link
                   href={l.href}
-                  className="group flex h-full flex-col rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft hover-lift hover:border-[#1A1AB5]/40 lg:p-10"
+                  className="card-sheen group flex h-full flex-col rounded-2xl border border-(--line) bg-(--surface) p-8 shadow-soft hover-lift hover:border-(--navy-text)/40 lg:p-10"
                 >
                   <h2 className="text-2xl">{l.title}</h2>
-                  <p className="mt-2 text-lg text-[#1A1AB5]" style={{ fontFamily: "var(--font-serif)" }}>{l.line}</p>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#4A463C]">{l.body}</p>
-                  <div className="mt-6 border-t border-[#E4DED0] pt-6">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-[#8A8578]">Buyer</p>
-                    <p className="mt-1 text-sm text-[#17150F]">{l.buyer}</p>
+                  <p className="mt-2 text-lg text-(--navy-text)" style={{ fontFamily: "var(--font-serif)" }}>{l.line}</p>
+                  <p className="mt-4 text-[15px] leading-relaxed text-(--ink-soft)">{l.body}</p>
+                  <div className="mt-6 border-t border-(--line) pt-6">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-(--ink-faint)">Buyer</p>
+                    <p className="mt-1 text-sm text-(--ink)">{l.buyer}</p>
                   </div>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
                     Explore {l.title}
                     <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>
@@ -72,7 +72,7 @@ export default function OperationsCorePage() {
       </section>
 
       {/* THE RULES */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Four rules we do not bend.</h2>
@@ -85,9 +85,9 @@ export default function OperationsCorePage() {
               ["We claim only what we have delivered.", "Partner track record is cited as partner track record. Nothing is dressed up as our own go-live until it is."],
             ].map(([t, d], i) => (
               <Reveal key={t} delay={(i % 2) * 100}>
-                <div className="flex flex-col gap-2 border-t-2 border-[#1A1AB5] pt-5">
+                <div className="flex flex-col gap-2 border-t-2 border-(--navy-text) pt-5">
                   <h3 className="text-lg">{t}</h3>
-                  <p className="text-sm leading-relaxed text-[#4A463C]">{d}</p>
+                  <p className="text-sm leading-relaxed text-(--ink-soft)">{d}</p>
                 </div>
               </Reveal>
             ))}
@@ -96,11 +96,11 @@ export default function OperationsCorePage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">One system. One version of the numbers.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               A diagnostic tells you what to build and what to leave alone. It is credited to the build if
               you go ahead. Start there.
             </p>

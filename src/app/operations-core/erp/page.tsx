@@ -47,14 +47,14 @@ export default function ErpPage() {
       />
 
       {/* WHY ERPNEXT */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
               <h2 className="mt-5 text-3xl leading-tight">You own the system. You pay for the work, not the licence.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
-              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
+              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 <p>
                   ERPNext is open source. There is no per-seat licence fee climbing every year. You own the
                   system outright, and you pay MorningEdge for the implementation, the part that decides
@@ -72,7 +72,7 @@ export default function ErpPage() {
       </section>
 
       {/* COMPLIANCE */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Compliance is built in, not bolted on.</h2>
@@ -80,7 +80,7 @@ export default function ErpPage() {
           <div className="mt-12 flex flex-wrap gap-3">
             {compliance.map((c, i) => (
               <Reveal key={c} delay={(i % 6) * 60}>
-                <span className="inline-block rounded-md border border-[#E4DED0] bg-white px-5 py-2.5 text-sm font-medium text-[#17150F]">
+                <span className="inline-block rounded-md border border-(--line) bg-(--surface) px-5 py-2.5 text-sm font-medium text-(--ink)">
                   {c}
                 </span>
               </Reveal>
@@ -90,21 +90,21 @@ export default function ErpPage() {
       </section>
 
       {/* LADDER */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnostic first. Then build, rollout, sustain.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
+          <div className="card-sheen mt-12 overflow-hidden rounded-2xl border border-(--line) bg-(--surface) shadow-soft">
             {ladder.map((o, i) => (
               <Reveal key={o.name}>
-                <div className={`grid grid-cols-1 gap-2 bg-white p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
+                <div className={`grid grid-cols-1 gap-2 bg-(--surface) p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-(--line)" : ""}`}>
                   <div className="sm:col-span-3 flex items-baseline gap-3">
-                    <span className="text-sm font-semibold text-[#B45309]">0{i + 1}</span>
+                    <span className="text-sm font-semibold text-(--accent)">0{i + 1}</span>
                     <h3 className="text-lg">{o.name}</h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-[#4A463C] sm:col-span-7">{o.shape}</p>
-                  <p className="text-sm font-medium text-[#1A1AB5] sm:col-span-2 sm:text-right">{o.price}</p>
+                  <p className="text-sm leading-relaxed text-(--ink-soft) sm:col-span-7">{o.shape}</p>
+                  <p className="text-sm font-medium text-(--navy-text) sm:col-span-2 sm:text-right">{o.price}</p>
                 </div>
               </Reveal>
             ))}
@@ -113,11 +113,11 @@ export default function ErpPage() {
       </section>
 
       {/* DELIVERY */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal className="max-w-3xl">
             <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">Architecture from MorningEdge. Implementation from certified partners.</h2>
-            <p className="mt-6 text-[15px] leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-[15px] leading-relaxed text-(--ink-soft)">
               MorningEdge leads architecture, scoping and adoption. Implementation and development are
               carried by Frappe-certified partners inside a specialist delivery network. You get one
               accountable owner and a bench of certified capability behind it.
@@ -127,11 +127,11 @@ export default function ErpPage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Find out what to build, and what to leave alone.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               The diagnostic maps your operation, sets the baseline, and produces a working prototype. It is
               credited to the build if you go ahead. Book it.
             </p>

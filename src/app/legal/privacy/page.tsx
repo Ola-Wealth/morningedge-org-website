@@ -40,6 +40,26 @@ export default function PrivacyPage() {
         site does not set marketing cookies.
       </p>
 
+      <h2>Cookies and stored preferences</h2>
+      <p>
+        This site stores two small things in your browser, and nothing else:
+      </p>
+      <ul>
+        <li>
+          A cookie named <code>me_consent</code>, set when you choose an option on the cookie notice. It
+          records only the choice you made, so we do not ask you again. It lasts twelve months and is
+          never sent to anyone but this site.
+        </li>
+        <li>
+          A browser preference named <code>me-theme</code>, stored in local storage if you switch between
+          light and dark mode. It never leaves your device.
+        </li>
+      </ul>
+      <p>
+        Neither is used to identify you or to track you. You can clear both at any time through your
+        browser settings, and the site keeps working.
+      </p>
+
       <h2>Why we use it, and our lawful basis</h2>
       <p>
         We use this data for one purpose: to respond to your enquiry and, where there is a fit, to scope

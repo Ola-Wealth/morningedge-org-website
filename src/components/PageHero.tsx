@@ -21,7 +21,7 @@ export default function PageHero({
   secondary?: { href: string; label: string };
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-[#E4DED0]">
+    <section className="hero-texture relative overflow-hidden border-b border-(--line)">
       <Watermark className="-right-40 -top-32 lg:-right-24 lg:-top-20" size={720} />
       <Container className="relative pt-16 pb-16 lg:pt-24 lg:pb-20">
         {/* Row 1: headline, lead, CTAs, centered and spanning the width */}
@@ -29,7 +29,7 @@ export default function PageHero({
           <h1 className="text-balance text-[2.5rem] leading-[1.05] tracking-[-0.025em] sm:text-5xl lg:text-[4rem]">
             {title}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4A463C] sm:text-xl">{lead}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-(--ink-soft) sm:text-xl">{lead}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink href={primary.href} size="lg">
               {primary.label} <ArrowRight size={17} />

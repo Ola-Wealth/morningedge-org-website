@@ -103,7 +103,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden border-b border-[#E4DED0]">
+      <section className="hero-texture relative overflow-hidden border-b border-(--line)">
         <Watermark className="-right-40 -top-32 lg:-right-24 lg:-top-20" size={780} />
         <Container className="relative pt-16 pb-16 lg:pt-24 lg:pb-20">
           {/* Row 1: headline, sub, CTAs, all centered and spanning the width */}
@@ -111,7 +111,7 @@ export default function HomePage() {
             <h1 className="text-balance text-[2.6rem] leading-[1.04] tracking-[-0.025em] sm:text-6xl lg:text-[4.75rem]">
               You are losing output in two places. Your people, and your systems.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4A463C] sm:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-(--ink-soft) sm:text-xl">
               MorningEdge fixes both. We make your people produce more in the tools they already own,
               and we put your company on one system that does the work. Two products. One outcome.
             </p>
@@ -138,19 +138,19 @@ export default function HomePage() {
               />
             </div>
             {/* Floating pillar chip: the two products, illustrated */}
-            <div className="relative -mt-10 ml-4 mr-4 rounded-2xl border border-[#E4DED0] bg-white p-4 shadow-soft-lg sm:absolute sm:-bottom-6 sm:left-6 sm:mt-0 sm:mr-0 sm:ml-0 sm:w-[300px]">
-              <div className="flex items-center gap-3 border-b border-[#E4DED0] pb-3">
+            <div className="card-sheen relative -mt-10 ml-4 mr-4 rounded-2xl border border-(--line) bg-(--surface) p-4 shadow-soft-lg sm:absolute sm:-bottom-6 sm:left-6 sm:mt-0 sm:mr-0 sm:ml-0 sm:w-[300px]">
+              <div className="flex items-center gap-3 border-b border-(--line) pb-3">
                 <IconChip size="sm"><Users size={16} /></IconChip>
                 <div className="leading-tight">
-                  <p className="text-sm font-medium text-[#17150F]">The AI Edge</p>
-                  <p className="text-xs text-[#8A8578]">Capability into your people</p>
+                  <p className="text-sm font-medium text-(--ink)">The AI Edge</p>
+                  <p className="text-xs text-(--ink-faint)">Capability into your people</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 pt-3">
                 <IconChip size="sm"><Layers size={16} /></IconChip>
                 <div className="leading-tight">
-                  <p className="text-sm font-medium text-[#17150F]">The Operations Core</p>
-                  <p className="text-xs text-[#8A8578]">Capability into your software</p>
+                  <p className="text-sm font-medium text-(--ink)">The Operations Core</p>
+                  <p className="text-xs text-(--ink-faint)">Capability into your software</p>
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
       </section>
 
       {/* ── THE TWO LOSSES ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <h2 className={`${h2} max-w-2xl`}>Fix only one, and the other still leaks.</h2>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -167,7 +167,7 @@ export default function HomePage() {
               const HeadIcon = col.icon;
               return (
                 <Reveal key={col.title} delay={i * 90}>
-                  <div className="h-full rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft lg:p-9">
+                  <div className="card-sheen h-full rounded-2xl border border-(--line) bg-(--surface) p-8 shadow-soft lg:p-9">
                     <div className="flex items-center gap-4">
                       <IconChip size="lg" tone="ink"><HeadIcon size={22} /></IconChip>
                       <h3 className="text-2xl">{col.title}</h3>
@@ -178,7 +178,7 @@ export default function HomePage() {
                         return (
                           <li key={item.text} className="flex items-start gap-4">
                             <IconChip size="sm"><Ico size={15} /></IconChip>
-                            <p className="pt-1.5 text-[15px] leading-relaxed text-[#17150F]">{item.text}</p>
+                            <p className="pt-1.5 text-[15px] leading-relaxed text-(--ink)">{item.text}</p>
                           </li>
                         );
                       })}
@@ -192,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SCROLL-FOCUS STATEMENT ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-24 lg:py-36">
           <ScrollFocusText
             text="Fix only the people, and a faster team still feeds a blind system. Fix only the systems, and a clean system sits unused. Most firms sell one. We work on both."
@@ -202,11 +202,11 @@ export default function HomePage() {
       </section>
 
       {/* ── THE TWO PILLARS ── */}
-      <section className="border-b border-[#E4DED0] bg-[#F1ECE1]">
+      <section className="texture-dots border-b border-(--line) bg-(--panel)">
         <Container className="py-20 lg:py-24">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className={`${h2} max-w-xl`}>Two products. Either stands alone.</h2>
-            <p className="max-w-md text-[15px] leading-relaxed text-[#4A463C]">
+            <p className="max-w-md text-[15px] leading-relaxed text-(--ink-soft)">
               A company can buy either without the other. That is not a compromise. It is the point.
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function HomePage() {
                 <Reveal key={p.title} delay={i * 90}>
                   <Link
                     href={p.href}
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft hover-lift"
+                    className="card-sheen group flex h-full flex-col overflow-hidden rounded-2xl border border-(--line) bg-(--surface) shadow-soft hover-lift"
                   >
                     <div className="relative h-60 overflow-hidden sm:h-64">
                       <Image
@@ -230,25 +230,25 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#17150F]/45 via-transparent to-transparent" />
                       <div className="absolute left-5 top-5">
-                        <IconChip className="bg-white text-[#1A1AB5] shadow-soft"><Ico size={18} /></IconChip>
+                        <IconChip className="bg-(--surface) text-(--navy-text) shadow-soft"><Ico size={18} /></IconChip>
                       </div>
                       <p className="absolute bottom-5 left-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">{p.kicker}</p>
                     </div>
                     <div className="flex flex-1 flex-col p-8 lg:p-9">
                       <h3 className="text-2xl">{p.title}</h3>
-                      <p className="mt-1.5 text-lg text-[#1A1AB5]" style={{ fontFamily: "var(--font-serif)" }}>{p.line}</p>
-                      <p className="mt-4 text-[15px] leading-relaxed text-[#4A463C]">{p.body}</p>
-                      <dl className="mt-6 grid grid-cols-1 gap-3 border-t border-[#E4DED0] pt-6 text-sm sm:grid-cols-2">
+                      <p className="mt-1.5 text-lg text-(--navy-text)" style={{ fontFamily: "var(--font-serif)" }}>{p.line}</p>
+                      <p className="mt-4 text-[15px] leading-relaxed text-(--ink-soft)">{p.body}</p>
+                      <dl className="mt-6 grid grid-cols-1 gap-3 border-t border-(--line) pt-6 text-sm sm:grid-cols-2">
                         <div>
-                          <dt className="text-xs font-semibold uppercase tracking-wide text-[#8A8578]">Buyer</dt>
-                          <dd className="mt-0.5 text-[#17150F]">{p.buyer}</dd>
+                          <dt className="text-xs font-semibold uppercase tracking-wide text-(--ink-faint)">Buyer</dt>
+                          <dd className="mt-0.5 text-(--ink)">{p.buyer}</dd>
                         </div>
                         <div>
-                          <dt className="text-xs font-semibold uppercase tracking-wide text-[#8A8578]">Engagement</dt>
-                          <dd className="mt-0.5 text-[#17150F]">{p.length}</dd>
+                          <dt className="text-xs font-semibold uppercase tracking-wide text-(--ink-faint)">Engagement</dt>
+                          <dd className="mt-0.5 text-(--ink)">{p.length}</dd>
                         </div>
                       </dl>
-                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
                         Explore {p.title}
                         <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
                       </span>
@@ -259,14 +259,14 @@ export default function HomePage() {
             })}
           </div>
 
-          <p className="mx-auto mt-12 max-w-2xl text-center text-xl leading-snug text-[#17150F]" style={{ fontFamily: "var(--font-serif)" }}>
+          <p className="mx-auto mt-12 max-w-2xl text-center text-xl leading-snug text-(--ink)" style={{ fontFamily: "var(--font-serif)" }}>
             The AI Edge teaches your people to use AI. AI Integration builds AI that does the job.
           </p>
         </Container>
       </section>
 
       {/* ── CONVICTION BAND ── */}
-      <section className="bg-[#1A1AB5]">
+      <section className="texture-lines bg-(--navy)">
         <Container className="py-16 lg:py-20">
           <p className="mx-auto max-w-3xl text-center text-2xl leading-snug text-white sm:text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-serif)" }}>
             {site.conviction}
@@ -278,7 +278,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ADOPTION STANDARD ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-5">
@@ -294,42 +294,42 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7">
               <h2 className={h2}>We write usage into the contract.</h2>
-              <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+              <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
                 Training firms deliver attendance. Implementers deliver go-live. Both leave before anyone
                 uses the thing. We sign a usage number, baselined before we start, measured at day 30,
                 60 and 90.
               </p>
-              <Link href="/adoption-standard" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
+              <Link href="/adoption-standard" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
                 How the Adoption Standard works <ArrowRight size={15} />
               </Link>
             </div>
           </div>
 
           <Reveal className="mt-12">
-            <div className="overflow-x-auto rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
+            <div className="card-sheen overflow-x-auto rounded-2xl border border-(--line) bg-(--surface) shadow-soft">
               <table className="w-full min-w-[680px] border-collapse text-left text-sm">
                 <thead>
-                  <tr className="bg-[#F1ECE1]">
-                    <th className="p-4 font-semibold text-[#17150F]">What we measure</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 30</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 60</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 90</th>
+                  <tr className="bg-(--panel)">
+                    <th className="p-4 font-semibold text-(--ink)">What we measure</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 30</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 60</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 90</th>
                   </tr>
                 </thead>
                 <tbody>
                   {adoption.map((row) => {
                     const Ico = row.icon;
                     return (
-                      <tr key={row.pillar} className="border-t border-[#E4DED0] align-top">
+                      <tr key={row.pillar} className="border-t border-(--line) align-top">
                         <td className="p-4">
                           <div className="flex items-center gap-3">
                             <IconChip size="sm"><Ico size={15} /></IconChip>
-                            <span className="font-medium text-[#1A1AB5]">{row.pillar}</span>
+                            <span className="font-medium text-(--navy-text)">{row.pillar}</span>
                           </div>
                         </td>
-                        <td className="p-4 text-[#4A463C]">{row.d30}</td>
-                        <td className="p-4 text-[#4A463C]">{row.d60}</td>
-                        <td className="p-4 text-[#4A463C]">{row.d90}</td>
+                        <td className="p-4 text-(--ink-soft)">{row.d30}</td>
+                        <td className="p-4 text-(--ink-soft)">{row.d60}</td>
+                        <td className="p-4 text-(--ink-soft)">{row.d90}</td>
                       </tr>
                     );
                   })}
@@ -341,7 +341,7 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW AN ENGAGEMENT RUNS ── */}
-      <section className="border-b border-[#E4DED0] bg-[#F1ECE1]">
+      <section className="texture-dots border-b border-(--line) bg-(--panel)">
         <Container className="py-20 lg:py-24">
           <h2 className={`${h2} max-w-2xl`}>Four phases. A diagnostic first, always.</h2>
           <div className="mt-10 flex flex-col">
@@ -349,28 +349,28 @@ export default function HomePage() {
               const Ico = s.icon;
               return (
                 <Reveal key={s.n} delay={i * 60}>
-                  <div className={`grid grid-cols-1 items-start gap-4 py-8 sm:grid-cols-12 sm:gap-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
+                  <div className={`grid grid-cols-1 items-start gap-4 py-8 sm:grid-cols-12 sm:gap-8 ${i > 0 ? "border-t border-(--line)" : ""}`}>
                     <div className="flex items-center gap-5 sm:col-span-4">
-                      <span className="text-[64px] leading-none text-[#1A1AB5]/15 lg:text-[80px]" style={{ fontFamily: "var(--font-serif)" }} aria-hidden="true">
+                      <span className="text-[64px] leading-none text-(--navy-text)/15 lg:text-[80px]" style={{ fontFamily: "var(--font-serif)" }} aria-hidden="true">
                         {s.n}
                       </span>
-                      <IconChip className="bg-white shadow-soft"><Ico size={18} /></IconChip>
+                      <IconChip className="bg-(--surface) shadow-soft"><Ico size={18} /></IconChip>
                       <h3 className="text-2xl">{s.t}</h3>
                     </div>
-                    <p className="measure text-[15px] leading-relaxed text-[#4A463C] sm:col-span-8">{s.d}</p>
+                    <p className="measure text-[15px] leading-relaxed text-(--ink-soft) sm:col-span-8">{s.d}</p>
                   </div>
                 </Reveal>
               );
             })}
           </div>
-          <Link href="/approach" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
+          <Link href="/approach" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
             The full approach <ArrowRight size={15} />
           </Link>
         </Container>
       </section>
 
       {/* ── FOUNDER ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -386,7 +386,7 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7">
               <h2 className={h2}>One person is accountable for whether it gets used.</h2>
-              <p className="mt-6 text-[15px] leading-relaxed text-[#4A463C]">
+              <p className="mt-6 text-[15px] leading-relaxed text-(--ink-soft)">
                 MorningEdge is led by Olamilekan E. Wealth. He runs architecture, scoping and the adoption
                 contract on every engagement, and draws on a specialist delivery network for implementation
                 and engineering. The firm is small on purpose. The accountability is not diluted across a bench.
@@ -397,13 +397,13 @@ export default function HomePage() {
                   return (
                     <li key={r.label} className="flex items-center gap-3">
                       <IconChip size="sm"><Ico size={15} /></IconChip>
-                      <span className="text-[15px] text-[#17150F]">{r.label}</span>
+                      <span className="text-[15px] text-(--ink)">{r.label}</span>
                     </li>
                   );
                 })}
               </ul>
-              <p className="mt-6 text-sm text-[#8A8578]">{site.founded}</p>
-              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
+              <p className="mt-6 text-sm text-(--ink-faint)">{site.founded}</p>
+              <Link href="/about" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
                 More about the firm <ArrowRight size={15} />
               </Link>
             </div>
@@ -412,7 +412,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <h2 className={`${h2} max-w-2xl`}>The objections, answered plainly.</h2>
           <div className="mt-10">
@@ -422,16 +422,16 @@ export default function HomePage() {
       </section>
 
       {/* ── CLOSING ── */}
-      <section className="relative overflow-hidden">
+      <section className="section-glow relative overflow-hidden">
         <Watermark className="-bottom-40 -left-44 lg:-left-28" size={720} />
         <Container className="relative py-20 lg:py-28">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <p className="text-2xl leading-[1.25] sm:text-3xl lg:text-[2.75rem]" style={{ fontFamily: "var(--font-serif)" }}>
-                <span className="text-[#17150F]">The tools are bought. The systems exist. </span>
-                <span className="text-[#1A1AB5]">The edge is in making them execute.</span>
+                <span className="text-(--ink)">The tools are bought. The systems exist. </span>
+                <span className="text-(--navy-text)">The edge is in making them execute.</span>
               </p>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#4A463C]">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-(--ink-soft)">
                 A diagnostic is where every engagement starts. Tell us about your company and what is not
                 working. If we are not the right firm for it, we will say so.
               </p>
@@ -440,7 +440,7 @@ export default function HomePage() {
                   Book a diagnostic <ArrowRight size={17} />
                 </ButtonLink>
               </div>
-              <p className="mt-8 text-base italic text-[#4A463C]" style={{ fontFamily: "var(--font-serif)" }}>
+              <p className="mt-8 text-base italic text-(--ink-soft)" style={{ fontFamily: "var(--font-serif)" }}>
                 {site.brandLine}
               </p>
             </div>

@@ -25,10 +25,10 @@ export function ButtonLink({
   const sizing = size === "lg" ? "px-7 py-4 text-[15px]" : "px-6 py-3.5 text-sm";
   const styles = {
     primary:
-      "bg-[#1A1AB5] text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-[#14149A] hover:shadow-[0_12px_30px_-10px_rgba(26,26,181,0.65)]",
+      "bg-(--navy) text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-(--navy-dark) hover:shadow-[0_12px_30px_-10px_rgba(26,26,181,0.65)]",
     secondary:
-      "border border-[#17150F]/15 bg-white text-[#17150F] shadow-soft hover:border-[#17150F]/35",
-    ghost: "text-[#1A1AB5] hover:bg-[#1A1AB5]/6",
+      "border border-(--ink)/15 bg-(--surface) text-(--ink) shadow-soft hover:border-(--ink)/35",
+    ghost: "text-(--navy-text) hover:bg-(--navy-text)/6",
   }[variant];
   const props = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return (
@@ -51,8 +51,8 @@ export function IconChip({
   className?: string;
 }) {
   const tones = {
-    navy: "bg-[#1A1AB5]/8 text-[#1A1AB5]",
-    amber: "bg-[#B45309]/10 text-[#B45309]",
+    navy: "bg-(--navy-text)/8 text-(--navy-text)",
+    amber: "bg-(--accent)/10 text-(--accent)",
     ink: "bg-[#17150F] text-white",
   }[tone];
   const sizes = { sm: "h-9 w-9", md: "h-11 w-11", lg: "h-14 w-14" }[size];

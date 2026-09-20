@@ -56,14 +56,14 @@ export default function AiEdgePage() {
       />
 
       {/* WHY COPILOT */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
               <h2 className="mt-5 text-3xl leading-tight">Not a chatbot. The tool on the desk.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
-              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
+              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 <p>
                   The work lives in Outlook, Excel, Word, Teams and SharePoint. Microsoft 365 Copilot is
                   built into those apps, and most staff do not know it is there. We teach in the tool the
@@ -81,18 +81,18 @@ export default function AiEdgePage() {
       </section>
 
       {/* PRODUCT LINE */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">From a free room to an organisation-wide programme.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
+          <div className="card-sheen mt-12 overflow-hidden rounded-2xl border border-(--line) bg-(--surface) shadow-soft">
             {offers.map((o, i) => (
               <Reveal key={o.name}>
-                <div className={`grid grid-cols-1 gap-2 p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""} bg-white`}>
+                <div className={`grid grid-cols-1 gap-2 p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-(--line)" : ""} bg-(--surface)`}>
                   <h3 className="text-lg sm:col-span-3">{o.name}</h3>
-                  <p className="text-sm leading-relaxed text-[#4A463C] sm:col-span-7">{o.shape}</p>
-                  <p className="text-sm font-medium text-[#1A1AB5] sm:col-span-2 sm:text-right">{o.price}</p>
+                  <p className="text-sm leading-relaxed text-(--ink-soft) sm:col-span-7">{o.shape}</p>
+                  <p className="text-sm font-medium text-(--navy-text) sm:col-span-2 sm:text-right">{o.price}</p>
                 </div>
               </Reveal>
             ))}
@@ -102,7 +102,7 @@ export default function AiEdgePage() {
               href={site.cohortUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)"
             >
               Visit the AI Edge cohort site <ArrowUpRight size={15} />
             </a>
@@ -111,15 +111,15 @@ export default function AiEdgePage() {
       </section>
 
       {/* FUNCTION TRACKS */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Built for the function, not the crowd.</h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-(--line) bg-(--line) shadow-soft sm:grid-cols-2 lg:grid-cols-3">
             {tracks.map((t, i) => (
-              <Reveal key={t} delay={(i % 3) * 80} className="bg-white p-6 lg:p-8">
-                <p className="text-lg text-[#17150F]">{t}</p>
+              <Reveal key={t} delay={(i % 3) * 80} className="bg-(--surface) p-6 lg:p-8">
+                <p className="text-lg text-(--ink)">{t}</p>
               </Reveal>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function AiEdgePage() {
       </section>
 
       {/* ADOPTION */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal className="max-w-3xl">
             <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">We measure whether people use the tool.</h2>
@@ -137,9 +137,9 @@ export default function AiEdgePage() {
                 ["Day 60", "Hours returned per function, measured against the baseline we set before we started."],
                 ["Day 90", "Function-level workflows running without us."],
               ].map(([d, t]) => (
-                <li key={d} className="flex flex-col gap-1 border-l-2 border-[#1A1AB5] pl-5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-[#B45309]">{d}</span>
-                  <span className="text-[15px] leading-relaxed text-[#17150F]">{t}</span>
+                <li key={d} className="flex flex-col gap-1 border-l-2 border-(--navy-text) pl-5">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-(--accent)">{d}</span>
+                  <span className="text-[15px] leading-relaxed text-(--ink)">{t}</span>
                 </li>
               ))}
             </ul>
@@ -148,11 +148,11 @@ export default function AiEdgePage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Start with the room.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               A free session shows your team what the tool already does. It is also the clearest picture we
               get of how your people actually work. Book it.
             </p>

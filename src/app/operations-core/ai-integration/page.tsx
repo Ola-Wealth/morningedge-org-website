@@ -59,16 +59,16 @@ export default function AiIntegrationPage() {
       />
 
       {/* WORKFLOWS */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Whole workflows, not suggestions.</h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft md:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-(--line) bg-(--line) shadow-soft md:grid-cols-2">
             {workflows.map(([t, d], i) => (
-              <Reveal key={t} delay={(i % 2) * 100} className="bg-white p-8 lg:p-10">
+              <Reveal key={t} delay={(i % 2) * 100} className="bg-(--surface) p-8 lg:p-10">
                 <h3 className="text-xl">{t}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#4A463C]">{d}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-(--ink-soft)">{d}</p>
               </Reveal>
             ))}
           </div>
@@ -76,7 +76,7 @@ export default function AiIntegrationPage() {
       </section>
 
       {/* RULES */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Honest about the cost and the risk.</h2>
@@ -84,9 +84,9 @@ export default function AiIntegrationPage() {
           <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
             {rules.map(([t, d], i) => (
               <Reveal key={t} delay={i * 80}>
-                <div className="flex flex-col gap-2 border-t-2 border-[#1A1AB5] pt-5">
+                <div className="flex flex-col gap-2 border-t-2 border-(--navy-text) pt-5">
                   <h3 className="text-lg">{t}</h3>
-                  <p className="text-sm leading-relaxed text-[#4A463C]">{d}</p>
+                  <p className="text-sm leading-relaxed text-(--ink-soft)">{d}</p>
                 </div>
               </Reveal>
             ))}
@@ -95,21 +95,21 @@ export default function AiIntegrationPage() {
       </section>
 
       {/* OFFERS */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnose, pilot, build, run.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
+          <div className="card-sheen mt-12 overflow-hidden rounded-2xl border border-(--line) bg-(--surface) shadow-soft">
             {offers.map((o, i) => (
               <Reveal key={o.name}>
-                <div className={`grid grid-cols-1 gap-2 bg-white p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
+                <div className={`grid grid-cols-1 gap-2 bg-(--surface) p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-(--line)" : ""}`}>
                   <div className="sm:col-span-3 flex items-baseline gap-3">
-                    <span className="text-sm font-semibold text-[#B45309]">0{i + 1}</span>
+                    <span className="text-sm font-semibold text-(--accent)">0{i + 1}</span>
                     <h3 className="text-lg">{o.name}</h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-[#4A463C] sm:col-span-7">{o.shape}</p>
-                  <p className="text-sm font-medium text-[#1A1AB5] sm:col-span-2 sm:text-right">{o.price}</p>
+                  <p className="text-sm leading-relaxed text-(--ink-soft) sm:col-span-7">{o.shape}</p>
+                  <p className="text-sm font-medium text-(--navy-text) sm:col-span-2 sm:text-right">{o.price}</p>
                 </div>
               </Reveal>
             ))}
@@ -118,11 +118,11 @@ export default function AiIntegrationPage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Prove it on one workflow first.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               A pilot takes one workflow and one channel, with a containment target you can check. If it
               works, we build. If your platform already does part of it, we tell you. Book the diagnostic.
             </p>

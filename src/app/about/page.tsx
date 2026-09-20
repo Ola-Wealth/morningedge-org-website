@@ -23,13 +23,13 @@ export default function AboutPage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-4xl">
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
               A business operations firm, built to be accountable.
             </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
+            <p className="measure mt-8 text-lg leading-relaxed text-(--ink-soft)">
               MorningEdge works on the two places a company loses output. Its people, and its systems. We
               are deliberately small, so that one person stays accountable for whether the work gets used.
             </p>
@@ -38,14 +38,14 @@ export default function AboutPage() {
       </section>
 
       {/* TRIAD */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {beliefs.map(([t, d], i) => (
               <Reveal key={t} delay={i * 80}>
-                <div className="flex flex-col gap-2 border-t-2 border-[#1A1AB5] pt-5">
+                <div className="flex flex-col gap-2 border-t-2 border-(--navy-text) pt-5">
                   <h2 className="text-2xl">{t}</h2>
-                  <p className="text-[15px] leading-relaxed text-[#4A463C]">{d}</p>
+                  <p className="text-[15px] leading-relaxed text-(--ink-soft)">{d}</p>
                 </div>
               </Reveal>
             ))}
@@ -54,11 +54,11 @@ export default function AboutPage() {
       </section>
 
       {/* FOUNDER */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-5 lg:gap-16">
             <Reveal className="lg:col-span-2">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#E4DED0] shadow-soft-lg">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-(--line) shadow-soft-lg">
                 <Image
                   src="/pictures/IMG_686.jpeg"
                   alt="Olamilekan E. Wealth, founder of MorningEdge"
@@ -70,7 +70,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={100} className="lg:col-span-3">
               <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">Olamilekan E. Wealth</h2>
-              <div className="measure mt-6 flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
+              <div className="measure mt-6 flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 <p>
                   Olamilekan is a business operations executive and AI systems consultant. He works with
                   founders and executives to design the systems that turn effort into output, and he leads
@@ -92,14 +92,14 @@ export default function AboutPage() {
       </section>
 
       {/* DELIVERY NETWORK */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
               <h2 className="mt-5 text-3xl leading-tight">Prime contractor, specialist network.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
-              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
+              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 <p>
                   MorningEdge is the prime contractor. Specialist capability, ERPNext implementation and AI
                   engineering, is delivered through a named delivery network under signed agreements, with
@@ -117,22 +117,22 @@ export default function AboutPage() {
       </section>
 
       {/* REGISTERED */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-16 lg:py-20">
           <Reveal>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A8578]">Registered entity</p>
-                <p className="mt-2 text-[15px] text-[#17150F]">{site.legalName}</p>
-                <p className="text-[15px] text-[#17150F]">{site.rc}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-(--ink-faint)">Registered entity</p>
+                <p className="mt-2 text-[15px] text-(--ink)">{site.legalName}</p>
+                <p className="text-[15px] text-(--ink)">{site.rc}</p>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A8578]">Founded</p>
-                <p className="mt-2 text-[15px] text-[#17150F]">{site.founded}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-(--ink-faint)">Founded</p>
+                <p className="mt-2 text-[15px] text-(--ink)">{site.founded}</p>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A8578]">Registered office</p>
-                <p className="mt-2 text-[15px] text-[#17150F]">{site.registeredOffice}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-(--ink-faint)">Registered office</p>
+                <p className="mt-2 text-[15px] text-(--ink)">{site.registeredOffice}</p>
               </div>
             </div>
           </Reveal>
@@ -140,11 +140,11 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Bring us the work that keeps failing to stick.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               A diagnostic tells you what we would do and whether it is worth doing. If we are not the right
               firm, we will say so plainly.
             </p>

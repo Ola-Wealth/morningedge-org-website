@@ -40,13 +40,13 @@ export default function AdoptionStandardPage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-4xl">
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
               We write usage into the contract.
             </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
+            <p className="measure mt-8 text-lg leading-relaxed text-(--ink-soft)">
               Training firms deliver attendance. Implementers deliver go-live. Both walk away before the
               thing is used. We sign a usage number. It is baselined before delivery starts, and measured
               at day 30, 60 and 90.
@@ -56,14 +56,14 @@ export default function AdoptionStandardPage() {
       </section>
 
       {/* WHY IT MATTERS */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
               <h2 className="mt-5 text-3xl leading-tight">Attendance is not adoption. Go-live is not adoption.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
-              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
+              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 <p>
                   A room full of trained staff who never open the tool is a cost, not a return. A system that
                   goes live and sits unused is worse, because it was expensive. The gap between delivery and
@@ -81,39 +81,39 @@ export default function AdoptionStandardPage() {
       </section>
 
       {/* THE TABLE */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Three shapes of work. Nine checkpoints.</h2>
           </Reveal>
 
           <Reveal className="mt-12">
-            <div className="overflow-x-auto rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
+            <div className="card-sheen overflow-x-auto rounded-2xl border border-(--line) bg-(--surface) shadow-soft">
               <table className="w-full min-w-[720px] border-collapse text-left text-sm">
                 <thead>
-                  <tr className="bg-[#F1ECE1]">
-                    <th className="p-4 font-semibold text-[#17150F]">Work</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 30</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 60</th>
-                    <th className="p-4 font-semibold text-[#17150F]">Day 90</th>
+                  <tr className="bg-(--panel)">
+                    <th className="p-4 font-semibold text-(--ink)">Work</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 30</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 60</th>
+                    <th className="p-4 font-semibold text-(--ink)">Day 90</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((r) => (
-                    <tr key={r.label} className="border-t border-[#E4DED0] bg-white align-top">
+                    <tr key={r.label} className="border-t border-(--line) bg-(--surface) align-top">
                       <td className="p-4">
-                        <span className="block font-medium text-[#1A1AB5]">{r.label}</span>
-                        <span className="mt-1 block text-xs text-[#8A8578]">{r.note}</span>
+                        <span className="block font-medium text-(--navy-text)">{r.label}</span>
+                        <span className="mt-1 block text-xs text-(--ink-faint)">{r.note}</span>
                       </td>
-                      <td className="p-4 text-[#4A463C]">{r.d30}</td>
-                      <td className="p-4 text-[#4A463C]">{r.d60}</td>
-                      <td className="p-4 text-[#4A463C]">{r.d90}</td>
+                      <td className="p-4 text-(--ink-soft)">{r.d30}</td>
+                      <td className="p-4 text-(--ink-soft)">{r.d60}</td>
+                      <td className="p-4 text-(--ink-soft)">{r.d90}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-6 measure text-sm leading-relaxed text-[#8A8578]">
+            <p className="mt-6 measure text-sm leading-relaxed text-(--ink-faint)">
               The exact thresholds are set per engagement, against your baseline, so they are numbers we will
               stand behind rather than numbers that sound good in a brochure. For systems that act, the
               standard inverts: it measures whether the tool has stopped needing the people.
@@ -123,11 +123,11 @@ export default function AdoptionStandardPage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Ask us to sign the number.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               Nobody else in this market will. Bring us the work that keeps failing to stick, and we will
               tell you what we can commit to, in writing.
             </p>

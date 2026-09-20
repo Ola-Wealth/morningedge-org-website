@@ -16,7 +16,7 @@ const firmLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#E4DED0] bg-[#17150F] text-[#E9E4D8]">
+    <footer className="texture-dots [--dot:rgba(255,255,255,0.06)] border-t border-(--line) bg-[#17150F] text-[#E9E4D8]">
       <div className="mx-auto w-full max-w-6xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="md:col-span-2 flex flex-col gap-5">

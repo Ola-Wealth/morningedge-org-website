@@ -48,17 +48,17 @@ export default function ApproachPage() {
       />
 
       {/* PHASES */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
           <div className="flex flex-col">
             {phases.map((p, i) => (
               <Reveal key={p.n}>
-                <div className={`grid grid-cols-1 gap-4 py-10 lg:grid-cols-12 lg:gap-10 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
+                <div className={`grid grid-cols-1 gap-4 py-10 lg:grid-cols-12 lg:gap-10 ${i > 0 ? "border-t border-(--line)" : ""}`}>
                   <div className="lg:col-span-4">
-                    <span className="text-sm font-semibold text-[#B45309]">{p.n}</span>
+                    <span className="text-sm font-semibold text-(--accent)">{p.n}</span>
                     <h2 className="mt-2 text-3xl">{p.t}</h2>
                   </div>
-                  <p className="measure text-[15px] leading-relaxed text-[#4A463C] lg:col-span-8">{p.d}</p>
+                  <p className="measure text-[15px] leading-relaxed text-(--ink-soft) lg:col-span-8">{p.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -67,7 +67,7 @@ export default function ApproachPage() {
       </section>
 
       {/* PULL QUOTE */}
-      <section className="bg-[#1A1AB5]">
+      <section className="texture-lines bg-(--navy)">
         <Container className="py-16 lg:py-20">
           <Reveal>
             <p className="mx-auto max-w-3xl text-center text-2xl leading-snug text-white sm:text-3xl" style={{ fontFamily: "var(--font-serif)" }}>
@@ -78,11 +78,11 @@ export default function ApproachPage() {
       </section>
 
       {/* CTA */}
-      <section>
+      <section className="section-glow">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-3xl">
             <h2 className="text-3xl leading-tight sm:text-4xl">Start with the diagnostic.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+            <p className="mt-6 text-lg leading-relaxed text-(--ink-soft)">
               It is the cheapest, fastest way to find out whether we are the right firm for what you are
               carrying. Tell us what is breaking.
             </p>
