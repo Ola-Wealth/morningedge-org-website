@@ -99,7 +99,7 @@ export default function AiEdgePage() {
             <Eyebrow>The product line</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">From a free room to an organisation-wide programme.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-lg border border-[#E4DED0]">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
             {offers.map((o, i) => (
               <Reveal key={o.name}>
                 <div className={`grid grid-cols-1 gap-2 p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""} bg-white`}>
@@ -130,7 +130,7 @@ export default function AiEdgePage() {
             <Eyebrow>Function tracks</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Built for the function, not the crowd.</h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[#E4DED0] bg-[#E4DED0] sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft sm:grid-cols-2 lg:grid-cols-3">
             {tracks.map((t, i) => (
               <Reveal key={t} delay={(i % 3) * 80} className="bg-white p-6 lg:p-8">
                 <p className="text-lg text-[#17150F]">{t}</p>

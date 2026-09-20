@@ -31,8 +31,8 @@ export function ButtonLink({
     "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-medium transition-colors";
   const styles =
     variant === "primary"
-      ? "bg-[#1A1AB5] text-white hover:bg-[#14149A]"
-      : "border border-[#17150F]/20 text-[#17150F] hover:border-[#17150F]/55";
+      ? "bg-[#1A1AB5] text-white shadow-[0_6px_18px_-6px_rgba(26,26,181,0.5)] hover:bg-[#14149A] hover:shadow-[0_10px_26px_-8px_rgba(26,26,181,0.6)]"
+      : "border border-[#17150F]/20 bg-white text-[#17150F] shadow-soft hover:border-[#17150F]/40";
   const props = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return (
     <Link href={href} className={`${base} ${styles} ${className}`} {...props}>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search, Hammer, Users, RefreshCw } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import ScrollFocusText from "@/components/ScrollFocusText";
+import Faq from "@/components/Faq";
 import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
@@ -53,10 +55,19 @@ const adoption = [
 ];
 
 const steps = [
-  { n: "01", t: "Diagnose", d: "We map the real workflow and baseline it. Nobody buys a build without a diagnostic." },
-  { n: "02", t: "Build", d: "We enable the people, or configure the system, against the plan the diagnostic produced." },
-  { n: "03", t: "Adopt", d: "Role-based training to the Adoption Standard. Internal champions carry it after us." },
-  { n: "04", t: "Sustain", d: "Maintenance, refreshers, and run cost, quoted inside the build, never chased afterwards." },
+  { n: "1", t: "Diagnose", icon: Search, d: "We map the real workflow and baseline it. Nobody buys a build without a diagnostic, because the baseline is what every promise is measured against." },
+  { n: "2", t: "Build", icon: Hammer, d: "We enable the people, or configure the system, against the plan the diagnostic produced. No templates carried in from another company." },
+  { n: "3", t: "Adopt", icon: Users, d: "Role-based training to the Adoption Standard. We name the users, set the checkpoints, and grow internal champions who carry it after us." },
+  { n: "4", t: "Sustain", icon: RefreshCw, d: "Maintenance, refreshers, and run cost, quoted inside the build and never chased afterwards. Built to run without us." },
+];
+
+const faqs = [
+  { q: "We already pay for Microsoft. Why pay you?", a: "Correct. That is the argument. You are paying for capability nobody in the building uses. The AI Edge turns a licence you already own into output, inside the apps your people already have open." },
+  { q: "ERPNext is free. Why pay you?", a: "The software is free. The implementation decides whether it works. Free software with a failed rollout costs more than paid software that gets used. You pay us for the work, and you own the system." },
+  { q: "Our staff will not use it.", a: "That is the problem we sell against, on both sides of the house. It is why we write adoption into the contract, measured at day 30, 60 and 90, against a baseline we set before we start." },
+  { q: "The AI Edge or AI Integration. What is the difference?", a: "The AI Edge teaches your people to use AI. AI Integration builds AI that does the job. Different product, different buyer, different contract. You can buy either without the other." },
+  { q: "Who supports the system without you?", a: "Named succession: a Frappe-certified partner network, documented configuration, and hosting credentials you hold. You are never locked to one person, and that is by design." },
+  { q: "How fast do we see something real?", a: "A diagnostic runs in weeks, not months, and produces a working prototype. For AI Integration, a pilot proves the work is contained before you commit to a full build." },
 ];
 
 export default function HomePage() {
@@ -69,7 +80,7 @@ export default function HomePage() {
             <p className="mb-8 text-lg italic text-[#4A463C]" style={{ fontFamily: "var(--font-serif)" }}>
               {site.brandLine}
             </p>
-            <h1 className="text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-[2.6rem] leading-[1.04] tracking-[-0.02em] sm:text-6xl lg:text-7xl">
               You are losing output in two places. Your people, and your systems.
             </h1>
             <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
@@ -97,8 +108,8 @@ export default function HomePage() {
               Fix only one, and the other still leaks.
             </h2>
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[#E4DED0] bg-[#E4DED0] md:grid-cols-2">
-            <Reveal className="bg-[#FAF7F1] p-8 lg:p-10">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+            <Reveal className="rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft lg:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B45309]">In the people</p>
               <ul className="mt-6 flex flex-col gap-4">
                 {losses.people.map((item) => (
@@ -109,7 +120,7 @@ export default function HomePage() {
                 ))}
               </ul>
             </Reveal>
-            <Reveal delay={100} className="bg-[#FAF7F1] p-8 lg:p-10">
+            <Reveal delay={100} className="rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft lg:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B45309]">In the institution</p>
               <ul className="mt-6 flex flex-col gap-4">
                 {losses.systems.map((item) => (
@@ -124,8 +135,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── THE TWO PILLARS ── */}
+      {/* ── SCROLL-FOCUS STATEMENT ── */}
       <section className="border-b border-[#E4DED0]">
+        <Container className="py-24 lg:py-36">
+          <ScrollFocusText
+            text="Fix only the people, and a faster team still feeds a blind system. Fix only the systems, and a clean system sits unused. Most firms sell one. We work on both."
+            className="mx-auto max-w-4xl text-center text-2xl leading-[1.35] tracking-[-0.01em] [font-family:var(--font-serif)] sm:text-3xl lg:text-4xl"
+          />
+        </Container>
+      </section>
+
+      {/* ── THE TWO PILLARS ── */}
+      <section className="border-b border-[#E4DED0] bg-[#F1ECE1]">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <Eyebrow>What we sell</Eyebrow>
@@ -140,7 +161,7 @@ export default function HomePage() {
               <Reveal key={p.title} delay={i * 100}>
                 <Link
                   href={p.href}
-                  className="group flex h-full flex-col rounded-lg border border-[#E4DED0] bg-white p-8 transition-colors hover:border-[#1A1AB5]/40 lg:p-10"
+                  className="group flex h-full flex-col rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft hover-lift hover:border-[#1A1AB5]/40 lg:p-10"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B45309]">{p.kicker}</p>
                   <h3 className="mt-3 text-2xl">{p.title}</h3>
@@ -197,7 +218,7 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal className="mt-12">
-            <div className="overflow-x-auto rounded-lg border border-[#E4DED0]">
+            <div className="overflow-x-auto rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
               <table className="w-full min-w-[640px] border-collapse text-left text-sm">
                 <thead>
                   <tr className="bg-[#F1ECE1]">
@@ -227,22 +248,36 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW AN ENGAGEMENT RUNS ── */}
-      <section className="border-b border-[#E4DED0]">
+      <section className="border-b border-[#E4DED0] bg-[#F1ECE1]">
         <Container className="py-20 lg:py-24">
           <Reveal>
             <Eyebrow>How an engagement runs</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Four phases. A diagnostic first, always.</h2>
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s, i) => (
-              <Reveal key={s.n} delay={i * 80}>
-                <div className="flex flex-col gap-3 border-t-2 border-[#1A1AB5] pt-5">
-                  <span className="text-sm font-semibold text-[#B45309]">{s.n}</span>
-                  <h3 className="text-xl">{s.t}</h3>
-                  <p className="text-sm leading-relaxed text-[#4A463C]">{s.d}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14 flex flex-col">
+            {steps.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <Reveal key={s.n} delay={i * 60}>
+                  <div className={`grid grid-cols-1 items-start gap-4 py-8 sm:grid-cols-12 sm:gap-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
+                    <div className="flex items-center gap-5 sm:col-span-4">
+                      <span
+                        className="text-[64px] leading-none text-[#1A1AB5]/15 lg:text-[80px]"
+                        style={{ fontFamily: "var(--font-serif)" }}
+                        aria-hidden="true"
+                      >
+                        {s.n}
+                      </span>
+                      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[#E4DED0] bg-white text-[#1A1AB5] shadow-soft">
+                        <Icon size={18} />
+                      </span>
+                      <h3 className="text-2xl">{s.t}</h3>
+                    </div>
+                    <p className="measure text-[15px] leading-relaxed text-[#4A463C] sm:col-span-8">{s.d}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
           <Reveal>
             <Link href="/approach" className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[#1A1AB5]">
@@ -257,7 +292,7 @@ export default function HomePage() {
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-5 lg:gap-16">
             <Reveal className="lg:col-span-2">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-[#E4DED0]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#E4DED0] shadow-soft-lg">
                 <Image
                   src="/pictures/IMG_686.jpeg"
                   alt="Olamilekan E. Wealth, founder of MorningEdge"
@@ -284,12 +319,28 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ── FAQ ── */}
+      <section className="border-b border-[#E4DED0]">
+        <Container className="py-20 lg:py-24">
+          <Reveal>
+            <Eyebrow>Questions we get</Eyebrow>
+            <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">The objections, answered plainly.</h2>
+          </Reveal>
+          <Reveal className="mt-12">
+            <Faq items={faqs} />
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ── CLOSING CTA ── */}
       <section>
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-3xl">
-            <h2 className="text-3xl leading-tight sm:text-4xl">Tell us what is breaking.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#4A463C]">
+        <Container className="py-24 lg:py-36">
+          <Reveal className="max-w-4xl">
+            <p className="text-2xl leading-[1.3] sm:text-3xl lg:text-[2.75rem]" style={{ fontFamily: "var(--font-serif)" }}>
+              <span className="text-[#17150F]">The tools are bought. The systems exist. </span>
+              <span className="text-[#1A1AB5]">The edge is in making them execute.</span>
+            </p>
+            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
               A diagnostic is where every engagement starts. Tell us about your company and what is not
               working. If we are not the right firm for it, we will say so.
             </p>

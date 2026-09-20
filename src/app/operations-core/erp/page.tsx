@@ -109,7 +109,7 @@ export default function ErpPage() {
             <Eyebrow>The engagement</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnostic first. Then build, rollout, sustain.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-lg border border-[#E4DED0]">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
             {ladder.map((o, i) => (
               <Reveal key={o.name}>
                 <div className={`grid grid-cols-1 gap-2 bg-white p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>

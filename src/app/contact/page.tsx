@@ -45,7 +45,7 @@ function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-lg border border-[#E4DED0] bg-white p-10 lg:p-14">
+      <div className="rounded-2xl border border-[#E4DED0] bg-white p-10 shadow-soft lg:p-14">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1A1AB5]/10 text-[#1A1AB5]">
           <Check size={22} />
         </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={100}>
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-8 rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft">
                 <div>
                   <p className={labelClass}>Direct</p>
                   <div className="mt-3 flex flex-col gap-1.5 text-[15px]">

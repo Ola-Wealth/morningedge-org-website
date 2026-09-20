@@ -91,7 +91,7 @@ export default function AdoptionStandardPage() {
           </Reveal>
 
           <Reveal className="mt-12">
-            <div className="overflow-x-auto rounded-lg border border-[#E4DED0]">
+            <div className="overflow-x-auto rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
               <table className="w-full min-w-[720px] border-collapse text-left text-sm">
                 <thead>
                   <tr className="bg-[#F1ECE1]">

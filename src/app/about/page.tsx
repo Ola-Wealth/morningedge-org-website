@@ -59,7 +59,7 @@ export default function AboutPage() {
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-5 lg:gap-16">
             <Reveal className="lg:col-span-2">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-[#E4DED0]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#E4DED0] shadow-soft-lg">
                 <Image
                   src="/pictures/IMG_686.jpeg"
                   alt="Olamilekan E. Wealth, founder of MorningEdge"

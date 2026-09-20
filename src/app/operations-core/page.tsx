@@ -61,7 +61,7 @@ export default function OperationsCorePage() {
               <Reveal key={l.title} delay={i * 100}>
                 <Link
                   href={l.href}
-                  className="group flex h-full flex-col rounded-lg border border-[#E4DED0] bg-white p-8 transition-colors hover:border-[#1A1AB5]/40 lg:p-10"
+                  className="group flex h-full flex-col rounded-2xl border border-[#E4DED0] bg-white p-8 shadow-soft hover-lift hover:border-[#1A1AB5]/40 lg:p-10"
                 >
                   <h2 className="text-2xl">{l.title}</h2>
                   <p className="mt-2 text-lg text-[#1A1AB5]" style={{ fontFamily: "var(--font-serif)" }}>{l.line}</p>

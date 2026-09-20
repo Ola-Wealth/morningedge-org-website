@@ -75,7 +75,7 @@ export default function AiIntegrationPage() {
             <Eyebrow>What it carries</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Whole workflows, not suggestions.</h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[#E4DED0] bg-[#E4DED0] md:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft md:grid-cols-2">
             {workflows.map(([t, d], i) => (
               <Reveal key={t} delay={(i % 2) * 100} className="bg-white p-8 lg:p-10">
                 <h3 className="text-xl">{t}</h3>
@@ -113,7 +113,7 @@ export default function AiIntegrationPage() {
             <Eyebrow>The engagement</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnose, pilot, build, run.</h2>
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-lg border border-[#E4DED0]">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
             {offers.map((o, i) => (
               <Reveal key={o.name}>
                 <div className={`grid grid-cols-1 gap-2 bg-white p-6 sm:grid-cols-12 sm:items-center lg:px-8 ${i > 0 ? "border-t border-[#E4DED0]" : ""}`}>
