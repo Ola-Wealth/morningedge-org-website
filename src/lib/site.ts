@@ -1,5 +1,5 @@
 export const site = {
-  name: "MorningEdge",
+  name: "MorningEdge Systems",
   legalName: "MorningEdge Dynamic Systems Limited",
   rc: "RC 9652432",
   url: "https://www.morningedgesystems.com",

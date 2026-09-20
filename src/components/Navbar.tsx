@@ -17,10 +17,12 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-(--line) bg-(--ground)/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="MorningEdge home">
-          <Image src="/logo-mark.png" alt="" width={30} height={30} className="theme-invert h-7 w-7 object-contain" />
-          <span className="text-lg font-medium tracking-tight text-(--ink)" style={{ fontFamily: "var(--font-serif)" }}>
-            MorningEdge
+        <Link href="/" className="flex items-center gap-2.5" aria-label="MorningEdge Systems home">
+          <Image src="/logo-mark.png" alt="" width={36} height={36} className="theme-invert h-8 w-8 object-contain" />
+          {/* Two-line wordmark: MorningEdge over Systems */}
+          <span className="flex flex-col leading-none" style={{ fontFamily: "var(--font-serif)" }}>
+            <span className="text-[17px] font-medium tracking-tight text-(--ink)">MorningEdge</span>
+            <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.22em] text-(--ink-soft)">Systems</span>
           </span>
         </Link>
 

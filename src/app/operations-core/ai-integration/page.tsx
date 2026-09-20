@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "AI built into the workflow to carry work end to end. Customer support agents, document capture and posting, exception detection, report generation. Pilot first, priced as build plus run.",
   alternates: { canonical: `${site.url}/operations-core/ai-integration` },
-  openGraph: { title: "AI Integration | MorningEdge", url: `${site.url}/operations-core/ai-integration` },
+  openGraph: { title: "AI Integration | MorningEdge Systems", url: `${site.url}/operations-core/ai-integration` },
 };
 
 const serviceJsonLd = {
@@ -18,7 +18,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "AI Integration",
   serviceType: "AI systems and workflow automation",
-  provider: { "@type": "Organization", name: "MorningEdge", url: site.url },
+  provider: { "@type": "Organization", name: "MorningEdge Systems", url: site.url },
   areaServed: { "@type": "Country", name: "Nigeria" },
   description:
     "AI agents and automations that carry work end to end, built pilot-first and priced as build plus metered run cost.",

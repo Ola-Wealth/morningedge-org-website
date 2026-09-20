@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "How a MorningEdge engagement runs, phase by phase. Diagnose, build, adopt, sustain. A diagnostic first, always, with a baseline every promise is measured against.",
   alternates: { canonical: `${site.url}/approach` },
-  openGraph: { title: "Approach | MorningEdge", url: `${site.url}/approach` },
+  openGraph: { title: "Approach | MorningEdge Systems", url: `${site.url}/approach` },
 };
 
 const phases = [

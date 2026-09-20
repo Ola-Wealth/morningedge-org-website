@@ -20,8 +20,9 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="md:col-span-2 flex flex-col gap-5">
-            <span className="text-xl font-medium tracking-tight text-white" style={{ fontFamily: "var(--font-serif)" }}>
-              MorningEdge
+            <span className="flex flex-col leading-none" style={{ fontFamily: "var(--font-serif)" }}>
+              <span className="text-xl font-medium tracking-tight text-white">MorningEdge</span>
+              <span className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-[#B4AE9E]">Systems</span>
             </span>
             <p className="max-w-xs text-sm leading-relaxed text-[#B4AE9E]">
               We build business operations. We make the people produce more, and we put the company on one system. Two products. One outcome.

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "AI enablement for your workforce. Your staff produce more using Microsoft 365 Copilot inside the tools your company already pays for. Usage written into the contract.",
   alternates: { canonical: `${site.url}/ai-edge` },
-  openGraph: { title: "The AI Edge | MorningEdge", url: `${site.url}/ai-edge` },
+  openGraph: { title: "The AI Edge | MorningEdge Systems", url: `${site.url}/ai-edge` },
 };
 
 const serviceJsonLd = {
@@ -18,7 +18,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "The AI Edge",
   serviceType: "AI enablement for the workforce",
-  provider: { "@type": "Organization", name: "MorningEdge", url: site.url },
+  provider: { "@type": "Organization", name: "MorningEdge Systems", url: site.url },
   areaServed: { "@type": "Country", name: "Nigeria" },
   description:
     "AI enablement inside Microsoft 365 Copilot, for the functions where the work lives. Delivered against the Adoption Standard.",

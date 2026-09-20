@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Training firms deliver attendance. Implementers deliver go-live. MorningEdge writes measured usage into the contract, baselined before delivery and measured at day 30, 60 and 90.",
   alternates: { canonical: `${site.url}/adoption-standard` },
-  openGraph: { title: "The Adoption Standard | MorningEdge", url: `${site.url}/adoption-standard` },
+  openGraph: { title: "The Adoption Standard | MorningEdge Systems", url: `${site.url}/adoption-standard` },
 };
 
 const rows = [

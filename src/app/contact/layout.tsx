@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Book a diagnostic with MorningEdge. Tell us about your company and what is breaking. Not every enquiry becomes an engagement, and we will say so plainly.",
   alternates: { canonical: `${site.url}/contact` },
-  openGraph: { title: "Contact | MorningEdge", url: `${site.url}/contact` },
+  openGraph: { title: "Contact | MorningEdge Systems", url: `${site.url}/contact` },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

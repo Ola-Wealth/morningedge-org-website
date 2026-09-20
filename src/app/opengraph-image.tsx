@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "MorningEdge. We build businesses that execute.";
+export const alt = "MorningEdge Systems. We build businesses that execute.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -25,7 +25,7 @@ export default function OgImage() {
 
         <div style={{ display: "flex", flexDirection: "column", paddingLeft: 32 }}>
           <span style={{ color: "#B45309", fontSize: 15, fontWeight: 700, letterSpacing: "0.28em" }}>
-            MORNINGEDGE
+            MORNINGEDGE SYSTEMS
           </span>
         </div>
 

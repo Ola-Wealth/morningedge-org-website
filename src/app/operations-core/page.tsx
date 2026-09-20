@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Software that does the work. One system holding every operation and every naira, built on ERPNext. Plus AI built into the workflow to carry work end to end.",
   alternates: { canonical: `${site.url}/operations-core` },
-  openGraph: { title: "The Operations Core | MorningEdge", url: `${site.url}/operations-core` },
+  openGraph: { title: "The Operations Core | MorningEdge Systems", url: `${site.url}/operations-core` },
 };
 
 const lines = [

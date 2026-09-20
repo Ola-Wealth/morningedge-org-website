@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "MorningEdge is a founder-led business operations firm in Lagos, led by Olamilekan E. Wealth, with a specialist delivery network for implementation and engineering.",
   alternates: { canonical: `${site.url}/about` },
-  openGraph: { title: "About | MorningEdge", url: `${site.url}/about` },
+  openGraph: { title: "About | MorningEdge Systems", url: `${site.url}/about` },
 };
 
 const beliefs = [

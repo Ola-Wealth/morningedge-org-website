@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "One centralised system holding all operations and all financials, built on ERPNext. Open source, configured for Nigerian reality: naira, VAT, WHT, FIRS, multi-entity consolidation, NDPA.",
   alternates: { canonical: `${site.url}/operations-core/erp` },
-  openGraph: { title: "Enterprise Resource Planning | MorningEdge", url: `${site.url}/operations-core/erp` },
+  openGraph: { title: "Enterprise Resource Planning | MorningEdge Systems", url: `${site.url}/operations-core/erp` },
 };
 
 const serviceJsonLd = {
@@ -18,7 +18,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "Enterprise Resource Planning",
   serviceType: "ERPNext implementation",
-  provider: { "@type": "Organization", name: "MorningEdge", url: site.url },
+  provider: { "@type": "Organization", name: "MorningEdge Systems", url: site.url },
   areaServed: { "@type": "Country", name: "Nigeria" },
   description:
     "ERPNext configured for Nigerian compliance and multi-entity consolidation. Diagnostic, build, rollout and sustain, delivered against the Adoption Standard.",

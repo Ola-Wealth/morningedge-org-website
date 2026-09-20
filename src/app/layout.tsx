@@ -22,8 +22,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "MorningEdge | Business Operations, People and Systems",
-    template: "%s | MorningEdge",
+    default: "MorningEdge Systems | Business Operations, People and Systems",
+    template: "%s | MorningEdge Systems",
   },
   description:
     "A Nigerian company loses output in two places: its people and its systems. MorningEdge fixes both. AI enablement for your workforce, and software that runs your operation on one system.",
@@ -36,21 +36,22 @@ export const metadata: Metadata = {
     "enterprise resource planning Nigeria",
     "operations consulting Lagos",
     "MorningEdge",
+    "MorningEdge Systems",
   ],
   authors: [{ name: "Olamilekan E. Wealth", url: site.url }],
   creator: site.legalName,
   openGraph: {
-    title: "MorningEdge | We build businesses that execute.",
+    title: "MorningEdge Systems | We build businesses that execute.",
     description:
       "AI enablement for your people. Software that runs your operation. Two products. One outcome. We write adoption into the contract.",
-    siteName: "MorningEdge",
+    siteName: "MorningEdge Systems",
     url: site.url,
     type: "website",
     locale: "en_NG",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MorningEdge | We build businesses that execute.",
+    title: "MorningEdge Systems | We build businesses that execute.",
     description:
       "AI enablement for your people. Software that runs your operation. Two products. One outcome.",
   },
@@ -65,7 +66,8 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "MorningEdge",
+  name: "MorningEdge Systems",
+  alternateName: "MorningEdge",
   legalName: site.legalName,
   url: site.url,
   logo: `${site.url}/logo.png`,
