@@ -106,23 +106,17 @@ export default function HomePage() {
       <section className="hero-texture relative overflow-hidden border-b border-(--line)">
         <Watermark className="-right-40 -top-32 lg:-right-24 lg:-top-20" size={780} />
         <Container className="relative pt-16 pb-16 lg:pt-24 lg:pb-20">
-          {/* Row 1: headline, sub, CTAs, all centered and spanning the width */}
-          <div className="mx-auto max-w-5xl text-center">
-            <h1 className="text-balance text-[2.6rem] leading-[1.04] tracking-[-0.025em] sm:text-6xl lg:text-[4.75rem]">
-              You are losing output in two places. Your people, and your systems.
+          {/* Row 1: headline and sub, each two lines at desktop, filling the container width.
+              Sizes are clamped to the viewport so the two lines stay two lines. */}
+          <div className="text-center">
+            <h1 className="hero-title text-[2.6rem] leading-[1.02] tracking-[-0.03em] sm:text-[min(4.45rem,calc((100vw-3rem)/15.6))]">
+              You are losing output in two places.
+              <br className="hidden sm:block" /> Your people, and your systems.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-(--ink-soft) sm:text-xl">
+            <p className="hero-sub mx-auto mt-6 max-w-2xl text-lg leading-relaxed sm:mt-7 sm:max-w-none sm:text-[clamp(1.125rem,calc((100vw-3rem)/43.5),1.55rem)] sm:leading-[1.45] lg:text-[clamp(1.125rem,calc((100vw-4rem)/44.4),1.55rem)]">
               MorningEdge fixes both. We make your people produce more in the tools they already own,
-              and we put your company on one system that does the work. Two products. One outcome.
+              <br className="hidden lg:block" /> and we put your company on one system that does the work. Two products. One outcome.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <ButtonLink href="/contact" size="lg">
-                Book a diagnostic <ArrowRight size={17} />
-              </ButtonLink>
-              <ButtonLink href="/approach" variant="secondary" size="lg">
-                See how we work
-              </ButtonLink>
-            </div>
           </div>
 
           {/* Row 2: the photograph, full width */}

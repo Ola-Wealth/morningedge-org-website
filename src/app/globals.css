@@ -154,6 +154,21 @@ body::before {
   mask-image: linear-gradient(180deg, #000 0%, #000 35%, transparent 92%);
 }
 
+/* Home hero type: ink running into brand navy across the line. */
+.hero-title,
+.hero-sub {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.hero-title {
+  background-image: linear-gradient(100deg, var(--ink) 0%, var(--ink) 40%, var(--navy-text) 100%);
+}
+.hero-sub {
+  background-image: linear-gradient(100deg, var(--ink-soft) 0%, var(--ink) 55%, var(--navy-text) 100%);
+}
+
 /* 3. Dot grid for panel bands. */
 .texture-dots {
   background-image: radial-gradient(var(--dot) 1px, transparent 1.4px);
