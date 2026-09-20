@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import PageHero from "@/components/PageHero";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -48,31 +49,19 @@ export default function AiIntegrationPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
 
-      {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-4xl">
-            <Eyebrow>Operations Core · Line 2</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              Your people are doing work the software should do.
-            </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
-              AI Integration builds AI into the workflow to carry work end to end, rather than assist a
-              person doing it by hand. The AI Edge teaches your people to use AI. AI Integration builds AI
-              that does the job.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        title="Your people are doing work the software should do."
+        lead="AI Integration builds AI into the workflow to carry work end to end, rather than assist a person doing it by hand. The AI Edge teaches your people to use AI. AI Integration builds AI that does the job."
+        image="/pictures/IMG_342_2.jpeg"
+        alt="A facilitator walking a team through reports on screen"
+        imagePosition="object-[center_20%]"
+        secondary={{ href: "/operations-core/erp", label: "See ERP" }}
+      />
 
       {/* WORKFLOWS */}
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>What it carries</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Whole workflows, not suggestions.</h2>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft md:grid-cols-2">
@@ -90,7 +79,6 @@ export default function AiIntegrationPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>Three rules we say out loud</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Honest about the cost and the risk.</h2>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -110,7 +98,6 @@ export default function AiIntegrationPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>The engagement</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnose, pilot, build, run.</h2>
           </Reveal>
           <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">

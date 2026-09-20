@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import PageHero from "@/components/PageHero";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -38,21 +39,13 @@ const phases = [
 export default function ApproachPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-4xl">
-            <Eyebrow>Approach</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              A diagnostic first. Always.
-            </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
-              Every engagement runs the same four phases, whether we are enabling your people or building
-              your system. The order does not change, because the order is what protects your money.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        title="A diagnostic first. Always."
+        lead="Every engagement runs the same four phases, whether we are enabling your people or building your system. The order does not change, because the order is what protects your money."
+        image="/pictures/IMG_342_1.jpeg"
+        alt="A working session in progress"
+        secondary={{ href: "/adoption-standard", label: "The Adoption Standard" }}
+      />
 
       {/* PHASES */}
       <section className="border-b border-[#E4DED0]">

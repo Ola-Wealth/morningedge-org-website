@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import PageHero from "@/components/PageHero";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -45,33 +46,20 @@ export default function AiEdgePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
 
-      {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-4xl">
-            <Eyebrow>Pillar A</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              Your staff already have the tool. They have never opened it.
-            </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
-              The AI Edge puts capability into your people. They produce more using AI inside the tools
-              you already pay for. Microsoft 365 Copilot, in Outlook, Excel, Word and Teams, where the
-              work actually lives.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-              <ButtonLink href="/adoption-standard" variant="secondary">The Adoption Standard</ButtonLink>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        title="Your staff already have the tool. They have never opened it."
+        lead="The AI Edge puts capability into your people. They produce more using AI inside the tools you already pay for. Microsoft 365 Copilot, in Outlook, Excel, Word and Teams, where the work actually lives."
+        image="/pictures/IMG_342_5.jpeg"
+        alt="Olamilekan E. Wealth teaching a room of professionals in Lagos"
+        imagePosition="object-[center_30%]"
+        secondary={{ href: "/adoption-standard", label: "The Adoption Standard" }}
+      />
 
       {/* WHY COPILOT */}
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
-              <Eyebrow>Why Copilot</Eyebrow>
               <h2 className="mt-5 text-3xl leading-tight">Not a chatbot. The tool on the desk.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
@@ -96,7 +84,6 @@ export default function AiEdgePage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>The product line</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">From a free room to an organisation-wide programme.</h2>
           </Reveal>
           <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
@@ -127,7 +114,6 @@ export default function AiEdgePage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>Function tracks</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Built for the function, not the crowd.</h2>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#E4DED0] bg-[#E4DED0] shadow-soft sm:grid-cols-2 lg:grid-cols-3">
@@ -144,7 +130,6 @@ export default function AiEdgePage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal className="max-w-3xl">
-            <Eyebrow>The Adoption Standard, for the AI Edge</Eyebrow>
             <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">We measure whether people use the tool.</h2>
             <ul className="mt-8 flex flex-col gap-4">
               {[

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import PageHero from "@/components/PageHero";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -33,25 +34,14 @@ const lines = [
 export default function OperationsCorePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-4xl">
-            <Eyebrow>Pillar B</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              Software that does the work.
-            </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
-              The Operations Core puts capability into your software. The system holds the operation,
-              instead of a person holding it in their head or their spreadsheet. Two service lines.
-              Neither requires the other.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        title="Software that does the work."
+        lead="The Operations Core puts capability into your software. The system holds the operation, instead of a person holding it in their head or their spreadsheet. Two service lines. Neither requires the other."
+        image="/pictures/about-header.jpg"
+        alt="A team reviewing the operation together at a table"
+        imagePosition="object-[center_30%]"
+        secondary={{ href: "/adoption-standard", label: "The Adoption Standard" }}
+      />
 
       {/* TWO LINES */}
       <section className="border-b border-[#E4DED0]">
@@ -85,7 +75,6 @@ export default function OperationsCorePage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>How we sell it</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Four rules we do not bend.</h2>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">

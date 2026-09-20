@@ -37,7 +37,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="rounded-md bg-[#1A1AB5] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#14149A]"
+            className="pressable rounded-lg bg-[#1A1AB5] px-5 py-2.5 text-sm font-medium text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-[#14149A]"
           >
             Book a diagnostic
           </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-4 rounded-md bg-[#1A1AB5] px-5 py-3.5 text-center text-sm font-medium text-white"
+              className="pressable mt-4 rounded-lg bg-[#1A1AB5] px-5 py-3.5 text-center text-sm font-medium text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)]"
             >
               Book a diagnostic
             </Link>

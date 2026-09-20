@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import PageHero from "@/components/PageHero";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -37,32 +38,19 @@ export default function ErpPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
 
-      {/* HERO */}
-      <section className="border-b border-[#E4DED0]">
-        <Container className="py-20 lg:py-28">
-          <Reveal className="max-w-4xl">
-            <Eyebrow>Operations Core · Line 1</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              Nobody can say what the group made last month without a meeting.
-            </h1>
-            <p className="measure mt-8 text-lg leading-relaxed text-[#4A463C]">
-              The numbers live in twelve spreadsheets across four departments. The books close three weeks
-              late. We put the whole operation on one system, so the ledger answers the question instead of
-              a meeting.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        title="Nobody can say what the group made last month without a meeting."
+        lead="The numbers live in twelve spreadsheets across four departments. The books close three weeks late. We put the whole operation on one system, so the ledger answers the question instead of a meeting."
+        image="/pictures/service-operations.jpg"
+        alt="An operations wall of process notes being worked through"
+        secondary={{ href: "/operations-core/ai-integration", label: "See AI Integration" }}
+      />
 
       {/* WHY ERPNEXT */}
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
-              <Eyebrow>Why ERPNext</Eyebrow>
               <h2 className="mt-5 text-3xl leading-tight">You own the system. You pay for the work, not the licence.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
@@ -87,7 +75,6 @@ export default function ErpPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>Configured for Nigerian reality</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Compliance is built in, not bolted on.</h2>
           </Reveal>
           <div className="mt-12 flex flex-wrap gap-3">
@@ -106,7 +93,6 @@ export default function ErpPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>The engagement</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Diagnostic first. Then build, rollout, sustain.</h2>
           </Reveal>
           <div className="mt-12 overflow-hidden rounded-2xl border border-[#E4DED0] bg-white shadow-soft">
@@ -130,7 +116,6 @@ export default function ErpPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal className="max-w-3xl">
-            <Eyebrow>Who delivers</Eyebrow>
             <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">Architecture from MorningEdge. Implementation from certified partners.</h2>
             <p className="mt-6 text-[15px] leading-relaxed text-[#4A463C]">
               MorningEdge leads architecture, scoping and adoption. Implementation and development are

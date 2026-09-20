@@ -14,34 +14,39 @@
   --accent:      #B45309;   /* single warm accent — small marks only */
 }
 
-html {
-  background: var(--ground);
-  -webkit-text-size-adjust: 100%;
-}
+/* Base element styles live in @layer base so Tailwind utilities (which sit in
+   @layer utilities) always win. Unlayered rules would otherwise beat every
+   utility, e.g. `a { color: inherit }` overriding `text-white` on buttons. */
+@layer base {
+  html {
+    background: var(--ground);
+    -webkit-text-size-adjust: 100%;
+  }
 
-body {
-  background: var(--ground);
-  color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-serif), Georgia, serif;
-  color: var(--ink);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-}
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
 
-::selection { background: var(--navy); color: #fff; }
+  ::selection { background: var(--navy); color: #fff; }
 
-a { color: inherit; }
+  a { color: inherit; }
 
-:focus-visible {
-  outline: 2px solid var(--navy);
-  outline-offset: 3px;
-  border-radius: 2px;
+  :focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 }
 
 /* Reveal-on-scroll: content is visible by default, so the page renders fully
@@ -100,15 +105,43 @@ a { color: inherit; }
 .shadow-soft-lg {
   box-shadow: 0 2px 6px rgba(23, 21, 15, 0.06), 0 28px 60px -24px rgba(23, 21, 15, 0.22);
 }
+:root {
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .hover-lift {
-  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
-  will-change: transform;
+  transition: box-shadow 320ms var(--ease-out-strong), transform 320ms var(--ease-out-strong), border-color 200ms ease;
 }
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 2px 6px rgba(23, 21, 15, 0.06), 0 28px 60px -24px rgba(23, 21, 15, 0.22);
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 6px rgba(23, 21, 15, 0.06), 0 28px 60px -24px rgba(23, 21, 15, 0.22);
+  }
 }
+
+/* Pressable elements confirm the press. Subtle scale, fast, ease-out. */
+.pressable {
+  transition: transform 160ms var(--ease-out-strong), background-color 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.pressable:active { transform: scale(0.97); }
+
+/* Photo frames: soft edge and a gentle inner vignette so images sit in the page rather than on it. */
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  isolation: isolate;
+}
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(23, 21, 15, 0.06);
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hover-lift { transition: none; }
-  .hover-lift:hover { transform: none; }
+  .hover-lift, .pressable { transition: none; }
+  .hover-lift:hover, .pressable:active { transform: none; }
 }

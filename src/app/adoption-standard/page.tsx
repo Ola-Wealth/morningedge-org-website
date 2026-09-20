@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -43,7 +43,6 @@ export default function AdoptionStandardPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-4xl">
-            <Eyebrow>The differentiator</Eyebrow>
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
               We write usage into the contract.
             </h1>
@@ -61,7 +60,6 @@ export default function AdoptionStandardPage() {
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
-              <Eyebrow>Why it exists</Eyebrow>
               <h2 className="mt-5 text-3xl leading-tight">Attendance is not adoption. Go-live is not adoption.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
@@ -86,7 +84,6 @@ export default function AdoptionStandardPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-24">
           <Reveal>
-            <Eyebrow>What we measure</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">Three shapes of work. Nine checkpoints.</h2>
           </Reveal>
 

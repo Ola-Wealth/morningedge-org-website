@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Loader2, ArrowRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow } from "@/components/primitives";
+import { Container } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 const field =
@@ -156,7 +156,6 @@ export default function ContactPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-4xl">
-            <Eyebrow>Contact</Eyebrow>
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
               Tell us what is breaking.
             </h1>

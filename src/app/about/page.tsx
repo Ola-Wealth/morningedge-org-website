@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { Container, Eyebrow, ButtonLink } from "@/components/primitives";
+import { Container, ButtonLink } from "@/components/primitives";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,7 +26,6 @@ export default function AboutPage() {
       <section className="border-b border-[#E4DED0]">
         <Container className="py-20 lg:py-28">
           <Reveal className="max-w-4xl">
-            <Eyebrow>The firm</Eyebrow>
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
               A business operations firm, built to be accountable.
             </h1>
@@ -70,7 +69,6 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-3">
-              <Eyebrow>The founder</Eyebrow>
               <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">Olamilekan E. Wealth</h2>
               <div className="measure mt-6 flex flex-col gap-4 text-[15px] leading-relaxed text-[#4A463C]">
                 <p>
@@ -98,7 +96,6 @@ export default function AboutPage() {
         <Container className="py-20 lg:py-24">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             <Reveal>
-              <Eyebrow>Delivery</Eyebrow>
               <h2 className="mt-5 text-3xl leading-tight">Prime contractor, specialist network.</h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-2">
