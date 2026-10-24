@@ -109,13 +109,14 @@ export default function HomePage() {
           {/* Row 1: headline and sub, each two lines at desktop, filling the container width.
               Sizes are clamped to the viewport so the two lines stay two lines. */}
           <div className="text-center">
-            <h1 className="hero-title text-[2.6rem] leading-[1.02] tracking-[-0.03em] sm:text-[min(4.45rem,calc((100vw-3rem)/15.6))]">
-              You are losing output in two places.
-              <br className="hidden sm:block" /> Your people, and your systems.
+            {/* Sized from the measured line width so the headline sets on one line
+                from 640px up and spans the container without reflowing. */}
+            <h1 className="hero-title text-[2.5rem] leading-[1.04] tracking-[-0.03em] sm:whitespace-nowrap sm:text-[min(3.65rem,calc((100vw-3.5rem)/19.4))]">
+              Your business, structured to produce more.
             </h1>
-            <p className="hero-sub mx-auto mt-6 max-w-2xl text-lg leading-relaxed sm:mt-7 sm:max-w-none sm:text-[clamp(1.125rem,calc((100vw-3rem)/43.5),1.55rem)] sm:leading-[1.45] lg:text-[clamp(1.125rem,calc((100vw-4rem)/44.4),1.55rem)]">
-              MorningEdge fixes both. We make your people produce more in the tools they already own,
-              <br className="hidden lg:block" /> and we put your company on one system that does the work. Two products. One outcome.
+            <p className="hero-sub mx-auto mt-6 max-w-3xl text-lg leading-relaxed sm:mt-8 sm:text-xl sm:leading-[1.5] lg:text-[1.35rem]">
+              We train your people to use AI in the tools they already have. We put your operations
+              on one system. Then we commit to a usage number, so you can see the change is real.
             </p>
           </div>
 
