@@ -1,26 +1,19 @@
-import nodemailer from "nodemailer";
-
 /**
- * Outbound mail from hello@morningedgesystems.com.
+ * Outbound mail through Resend, the same service the AI Edge site uses.
  *
- * Configured against Zoho today. Because the host, port and credentials are
- * all environment values, moving the mailbox to Microsoft 365 later is a
- * change of settings rather than a change of code:
- *   Zoho       SMTP_HOST=smtp.zoho.com        SMTP_PORT=465
- *   Microsoft  SMTP_HOST=smtp.office365.com   SMTP_PORT=587
+ * Needs RESEND_API_KEY, and EMAIL_FROM set to an address on a domain that is
+ * verified in the Resend dashboard. Resend rejects any other sender, so the
+ * from-address and the verified domain have to agree.
  *
- * Zoho has two-factor enabled, so SMTP_PASS must be an application-specific
- * password generated in the Zoho account security settings, never the
- * account password.
+ * Nothing here touches the mailbox itself, so moving hello@ from Zoho to
+ * Microsoft 365 does not affect sending. Replies land in whichever mailbox
+ * the MX records point at.
  */
 
-const HOST = process.env.SMTP_HOST ?? "smtp.zoho.com";
-const PORT = Number(process.env.SMTP_PORT ?? 465);
-const USER = process.env.SMTP_USER ?? "";
-const PASS = process.env.SMTP_PASS ?? "";
-const FROM = process.env.SMTP_FROM ?? USER;
+const API_KEY = process.env.RESEND_API_KEY ?? "";
+const FROM = process.env.EMAIL_FROM ?? "MorningEdge Systems <hello@morningedgesystems.com>";
 
-export const mailConfigured = Boolean(USER && PASS);
+export const mailConfigured = Boolean(API_KEY);
 
 export async function sendMail(opts: {
   to: string;
@@ -28,21 +21,26 @@ export async function sendMail(opts: {
   text: string;
   replyTo?: string;
 }) {
-  if (!mailConfigured) throw new Error("SMTP is not configured");
+  if (!mailConfigured) throw new Error("RESEND_API_KEY is not set");
 
-  const transport = nodemailer.createTransport({
-    host: HOST,
-    port: PORT,
-    // 465 is implicit TLS; 587 upgrades with STARTTLS.
-    secure: PORT === 465,
-    auth: { user: USER, pass: PASS },
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+    body: JSON.stringify({
+      from: FROM,
+      to: [opts.to],
+      subject: opts.subject,
+      text: opts.text,
+      ...(opts.replyTo ? { reply_to: opts.replyTo } : {}),
+    }),
   });
 
-  await transport.sendMail({
-    from: `MorningEdge Systems <${FROM}>`,
-    to: opts.to,
-    replyTo: opts.replyTo,
-    subject: opts.subject,
-    text: opts.text,
-  });
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`Resend ${res.status}: ${detail.slice(0, 300)}`);
+  }
 }

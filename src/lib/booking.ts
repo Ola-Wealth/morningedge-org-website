@@ -29,9 +29,9 @@ export function formatNaira(naira: number) {
  * ever shown.
  */
 export const BANK = {
-  name: "",          // e.g. "Guaranty Trust Bank"
-  accountName: "",   // e.g. "MorningEdge Dynamic Systems Limited"
-  number: "",        // e.g. "0123456789"
+  name: "GTBank",
+  accountName: "MorningEdge Dynamic Systems",
+  number: "3005902981",
 };
 
 export const bankPublished = Boolean(BANK.number && BANK.accountName && BANK.name);
