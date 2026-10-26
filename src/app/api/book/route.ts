@@ -146,9 +146,8 @@ async function consultation(d: Common & { date: string; time: string }) {
       "What should be true afterwards:",
       d.outcome || "Not provided",
       "",
-      MEETING_URL
-        ? "They already have the meeting link. Next: confirm the transfer, then mark the row Paid."
-        : "Next: confirm the transfer, send them the meeting link, then mark the row Paid.",
+      "Next: confirm the transfer, send them the link below, then mark the row Paid.",
+      ...(MEETING_URL ? ["", "Meeting room to send them:", MEETING_URL] : []),
     ].join("\n");
 
     try {
@@ -176,16 +175,7 @@ async function consultation(d: Common & { date: string; time: string }) {
         : "    Account details follow in a separate message.",
       "",
       "The reference is how the payment is matched to your booking, so please include it.",
-      "",
-      ...(MEETING_URL
-        ? [
-            "We meet here:",
-            "",
-            `    ${MEETING_URL}`,
-            "",
-            "The room opens at your start time once the transfer has been confirmed.",
-          ]
-        : ["Once the transfer lands, the meeting link comes back to you by email."]),
+      "Once the transfer lands, the meeting link comes straight back to you.",
       "",
       "If you need a different time, reply to this message.",
       "",
