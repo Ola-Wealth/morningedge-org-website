@@ -5,6 +5,7 @@ import { Loader2, ArrowRight, Check, Users, MessageSquare } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { Container } from "@/components/primitives";
 import { site } from "@/lib/site";
+import { CONSULTATION, SLOTS, approxUsd, formatNaira } from "@/lib/booking";
 
 const field =
   "w-full rounded-md border border-(--line) bg-(--surface) px-4 py-3 text-[15px] text-(--ink) placeholder:text-(--ink-faint) focus:border-(--navy-text) focus:outline-none focus:ring-2 focus:ring-(--navy-text)/20 transition-colors";
@@ -12,21 +13,20 @@ const labelClass = "text-xs font-semibold uppercase tracking-wide text-(--ink-so
 
 type BookingType = "" | "Training" | "Consultation";
 
-/** Weekday evenings, Lagos time. */
-const SLOTS = ["5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm"];
-
-const TYPES: { value: Exclude<BookingType, "">; icon: typeof Users; title: string; blurb: string }[] = [
+const TYPES: { value: Exclude<BookingType, "">; icon: typeof Users; title: string; blurb: string; price: string }[] = [
   {
     value: "Training",
     icon: Users,
     title: "A training",
     blurb: "A session for a team or a function, built around the work they actually do.",
+    price: "Quoted after we scope it",
   },
   {
     value: "Consultation",
     icon: MessageSquare,
     title: "A consultation",
-    blurb: "A working conversation about one decision you are carrying. Weekday evenings.",
+    blurb: "One hour on one decision you are carrying. Weekday evenings.",
+    price: `${formatNaira(CONSULTATION.amountNaira)} for the hour`,
   },
 ];
 
@@ -64,8 +64,13 @@ function BookingForm() {
     const fd = new FormData(e.currentTarget);
     const payload = Object.fromEntries(fd.entries());
 
+    // A consultation is paid for up front, so it goes to checkout and the
+    // booking is completed when the visitor returns. A training is scoped
+    // first, so it is only a request.
+    const endpoint = type === "Consultation" ? "/api/book/checkout" : "/api/book";
+
     try {
-      const res = await fetch("/api/book", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -74,11 +79,18 @@ function BookingForm() {
       if (!res.ok || result.result !== "success") {
         throw new Error(result.error || "The request did not go through.");
       }
+      if (type === "Consultation" && result.url) {
+        window.location.href = result.url;
+        return;
+      }
       setStatus("sent");
     } catch (err) {
       setStatus("error");
-      setErrorMsg(`Something went wrong. Please email directly at ${site.email}.`);
-      void err;
+      setErrorMsg(
+        err instanceof Error && err.message
+          ? `${err.message} You can also email ${site.email}.`
+          : `Something went wrong. Please email directly at ${site.email}.`
+      );
     }
   }
 
@@ -129,7 +141,7 @@ function BookingForm() {
         <legend className={`${labelClass} mb-3`}>What are you booking</legend>
         <input type="hidden" name="bookingType" value={type} />
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {TYPES.map(({ value, icon: Icon, title, blurb }) => {
+          {TYPES.map(({ value, icon: Icon, title, blurb, price }) => {
             const active = type === value;
             return (
               <button
@@ -148,6 +160,7 @@ function BookingForm() {
                 </span>
                 <span className="text-[15px] font-medium text-(--ink)">{title}</span>
                 <span className="text-[13.5px] leading-relaxed text-(--ink-soft)">{blurb}</span>
+                <span className="mt-1 text-[13px] font-medium text-(--ink-faint)">{price}</span>
               </button>
             );
           })}
@@ -283,14 +296,36 @@ function BookingForm() {
         </p>
       )}
 
+      {type === "Consultation" && (
+        <div className="rounded-xl border border-(--line) bg-(--panel) p-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <span className="text-[15px] font-medium text-(--ink)">
+              One hour, {formatNaira(CONSULTATION.amountNaira)}
+            </span>
+            <span className="text-[13px] text-(--ink-faint)">
+              {`about US$${approxUsd()} at today’s rate`}
+            </span>
+          </div>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-(--ink-soft)">
+            Paid up front into the MorningEdge account. Card, bank transfer or USSD. The Zoom link
+            reaches you the moment payment clears.
+          </p>
+        </div>
+      )}
+
       <button
         type="submit"
         disabled={status === "loading" || !type}
         className="mt-1 inline-flex items-center justify-center gap-2 self-start rounded-md bg-(--navy) px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-(--navy-dark) disabled:opacity-50"
       >
         {status === "loading"
-          ? <><Loader2 size={16} className="animate-spin" /> Sending</>
-          : <>{type === "Training" ? "Request this training" : "Request this slot"} <ArrowRight size={16} /></>}
+          ? <><Loader2 size={16} className="animate-spin" /> {type === "Consultation" ? "Opening checkout" : "Sending"}</>
+          : <>
+              {type === "Training"
+                ? "Request this training"
+                : `Pay ${formatNaira(CONSULTATION.amountNaira)} and book`}
+              <ArrowRight size={16} />
+            </>}
       </button>
     </form>
   );
@@ -326,8 +361,9 @@ export default function BookPage() {
                 <div>
                   <p className={labelClass}>Consultation hours</p>
                   <p className="mt-3 text-[15px] leading-relaxed text-(--ink-soft)">
-                    Monday to Friday, from 5pm Lagos time. Trainings are scheduled separately, around your
-                    team rather than around the calendar.
+                    Monday to Friday, from 5pm Lagos time. One hour,{" "}
+                    {formatNaira(CONSULTATION.amountNaira)}, paid up front. Trainings are scheduled
+                    separately and quoted after we scope them.
                   </p>
                 </div>
                 <div className="border-t border-(--line) pt-8">
