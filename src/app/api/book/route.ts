@@ -29,6 +29,13 @@ const CONTACT_WEBHOOK =
   process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ??
   "";
 
+/**
+ * The standing meeting room consultations are held in. It carries its own
+ * passcode, so it lives in the environment rather than in this repository,
+ * which is public.
+ */
+const MEETING_URL = process.env.ZOOM_MEETING_URL ?? "";
+
 type Payload = Record<string, string>;
 
 export async function POST(request: Request) {
@@ -139,7 +146,9 @@ async function consultation(d: Common & { date: string; time: string }) {
       "What should be true afterwards:",
       d.outcome || "Not provided",
       "",
-      "Next: confirm the transfer, create the meeting, and send them the link.",
+      MEETING_URL
+        ? "They already have the meeting link. Next: confirm the transfer, then mark the row Paid."
+        : "Next: confirm the transfer, send them the meeting link, then mark the row Paid.",
     ].join("\n");
 
     try {
@@ -167,7 +176,16 @@ async function consultation(d: Common & { date: string; time: string }) {
         : "    Account details follow in a separate message.",
       "",
       "The reference is how the payment is matched to your booking, so please include it.",
-      "Once the transfer lands, the meeting link comes back to you by email.",
+      "",
+      ...(MEETING_URL
+        ? [
+            "We meet here:",
+            "",
+            `    ${MEETING_URL}`,
+            "",
+            "The room opens at your start time once the transfer has been confirmed.",
+          ]
+        : ["Once the transfer lands, the meeting link comes back to you by email."]),
       "",
       "If you need a different time, reply to this message.",
       "",

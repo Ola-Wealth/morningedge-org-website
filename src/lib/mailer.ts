@@ -11,7 +11,14 @@
  */
 
 const API_KEY = process.env.RESEND_API_KEY ?? "";
-const FROM = process.env.EMAIL_FROM ?? "MorningEdge Systems <hello@morningedgesystems.com>";
+
+/**
+ * aiedge.morningedgesystems.com is the domain already verified in Resend, so
+ * it is the sender. The display name is free text, so the mail still reads as
+ * MorningEdge Systems, and replies are pointed at hello@morningedgesystems.com
+ * through reply_to on each message.
+ */
+const FROM = process.env.EMAIL_FROM ?? "MorningEdge Systems <hello@aiedge.morningedgesystems.com>";
 
 export const mailConfigured = Boolean(API_KEY);
 
