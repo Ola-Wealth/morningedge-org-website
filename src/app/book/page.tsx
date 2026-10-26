@@ -5,7 +5,9 @@ import { Loader2, ArrowRight, Check, Users, MessageSquare } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { Container } from "@/components/primitives";
 import { site } from "@/lib/site";
-import { CONSULTATION, SLOTS, approxUsd, formatNaira } from "@/lib/booking";
+import { BANK, CONSULTATION, SLOTS, approxUsd, bankPublished, formatNaira } from "@/lib/booking";
+
+type Confirmation = { reference: string; when: string; amountNaira: number };
 
 const field =
   "w-full rounded-md border border-(--line) bg-(--surface) px-4 py-3 text-[15px] text-(--ink) placeholder:text-(--ink-faint) focus:border-(--navy-text) focus:outline-none focus:ring-2 focus:ring-(--navy-text)/20 transition-colors";
@@ -43,6 +45,7 @@ function BookingForm() {
   const [errorMsg, setErrorMsg] = useState("");
   const [minDate, setMinDate] = useState("");
   const [dateError, setDateError] = useState("");
+  const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
 
   // Resolved after mount so the server and client render the same markup.
   useEffect(() => {
@@ -64,13 +67,8 @@ function BookingForm() {
     const fd = new FormData(e.currentTarget);
     const payload = Object.fromEntries(fd.entries());
 
-    // A consultation is paid for up front, so it goes to checkout and the
-    // booking is completed when the visitor returns. A training is scoped
-    // first, so it is only a request.
-    const endpoint = type === "Consultation" ? "/api/book/checkout" : "/api/book";
-
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -79,9 +77,12 @@ function BookingForm() {
       if (!res.ok || result.result !== "success") {
         throw new Error(result.error || "The request did not go through.");
       }
-      if (type === "Consultation" && result.url) {
-        window.location.href = result.url;
-        return;
+      if (result.reference) {
+        setConfirmation({
+          reference: result.reference,
+          when: result.when ?? "",
+          amountNaira: result.amountNaira ?? CONSULTATION.amountNaira,
+        });
       }
       setStatus("sent");
     } catch (err) {
@@ -100,11 +101,65 @@ function BookingForm() {
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-(--navy-text)/10 text-(--navy-text)">
           <Check size={22} />
         </div>
-        <h2 className="mt-6 text-2xl">Request received.</h2>
-        <p className="measure mt-3 text-[15px] leading-relaxed text-(--ink-soft)">
-          Olamilekan reads these himself and replies within two business days to confirm the slot or
-          propose another. If what you need is not a fit, you will be told that plainly.
-        </p>
+
+        {confirmation ? (
+          <>
+            <h2 className="mt-6 text-2xl">Slot held. One step left.</h2>
+            <p className="measure mt-3 text-[15px] leading-relaxed text-(--ink-soft)">
+              {confirmation.when} is pencilled in. It is confirmed once the fee lands, so please
+              transfer {formatNaira(confirmation.amountNaira)} quoting the reference below. The
+              meeting link follows by email.
+            </p>
+
+            <div className="mt-8 rounded-xl border border-(--line) bg-(--panel) p-5">
+              <p className={labelClass}>Your reference</p>
+              <p className="mt-2 font-mono text-lg tracking-wide text-(--ink)">{confirmation.reference}</p>
+              <p className="mt-2 text-[13px] text-(--ink-faint)">
+                Put this in the transfer narration. It is how your payment is matched to this booking.
+              </p>
+            </div>
+
+            {bankPublished ? (
+              <div className="mt-4 rounded-xl border border-(--line) bg-(--panel) p-5">
+                <p className={labelClass}>Pay into</p>
+                <dl className="mt-3 flex flex-col gap-2 text-[15px]">
+                  <div className="flex flex-wrap gap-x-3">
+                    <dt className="w-28 flex-shrink-0 text-(--ink-faint)">Bank</dt>
+                    <dd className="text-(--ink)">{BANK.name}</dd>
+                  </div>
+                  <div className="flex flex-wrap gap-x-3">
+                    <dt className="w-28 flex-shrink-0 text-(--ink-faint)">Account name</dt>
+                    <dd className="text-(--ink)">{BANK.accountName}</dd>
+                  </div>
+                  <div className="flex flex-wrap gap-x-3">
+                    <dt className="w-28 flex-shrink-0 text-(--ink-faint)">Account number</dt>
+                    <dd className="font-mono text-(--ink)">{BANK.number}</dd>
+                  </div>
+                  <div className="flex flex-wrap gap-x-3">
+                    <dt className="w-28 flex-shrink-0 text-(--ink-faint)">Amount</dt>
+                    <dd className="text-(--ink)">{formatNaira(confirmation.amountNaira)}</dd>
+                  </div>
+                </dl>
+              </div>
+            ) : (
+              <p className="measure mt-4 text-[15px] leading-relaxed text-(--ink-soft)">
+                The account details are on their way to you by email.
+              </p>
+            )}
+
+            <p className="measure mt-6 text-[15px] leading-relaxed text-(--ink-soft)">
+              A copy of all of this has been emailed to you. If you need a different time, reply to it.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="mt-6 text-2xl">Request received.</h2>
+            <p className="measure mt-3 text-[15px] leading-relaxed text-(--ink-soft)">
+              Olamilekan reads these himself and replies within two business days to scope the session
+              and quote it. If what you need is not a fit, you will be told that plainly.
+            </p>
+          </>
+        )}
       </div>
     );
   }
@@ -307,8 +362,9 @@ function BookingForm() {
             </span>
           </div>
           <p className="mt-2 text-[13.5px] leading-relaxed text-(--ink-soft)">
-            Paid up front into the MorningEdge account. Card, bank transfer or USSD. The Zoom link
-            reaches you the moment payment clears.
+            Paid by transfer into the MorningEdge account. You get the account details and a payment
+            reference on the next screen. The slot is confirmed, and the meeting link sent, once the
+            transfer lands.
           </p>
         </div>
       )}
@@ -319,11 +375,9 @@ function BookingForm() {
         className="mt-1 inline-flex items-center justify-center gap-2 self-start rounded-md bg-(--navy) px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-(--navy-dark) disabled:opacity-50"
       >
         {status === "loading"
-          ? <><Loader2 size={16} className="animate-spin" /> {type === "Consultation" ? "Opening checkout" : "Sending"}</>
+          ? <><Loader2 size={16} className="animate-spin" /> Sending</>
           : <>
-              {type === "Training"
-                ? "Request this training"
-                : `Pay ${formatNaira(CONSULTATION.amountNaira)} and book`}
+              {type === "Training" ? "Request this training" : "Hold this slot"}
               <ArrowRight size={16} />
             </>}
       </button>

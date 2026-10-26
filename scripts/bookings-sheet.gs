@@ -1,9 +1,12 @@
 /**
  * MorningEdge bookings log.
  *
- * A separate Google Sheet from the contact-form one. It records every paid
- * consultation: who booked, when the session runs, the Zoom link and the
- * payment reference.
+ * A separate Google Sheet from the contact-form one. It records every
+ * consultation request: who booked, when the session runs, the payment
+ * reference they must quote on their transfer, and whether it has been paid.
+ *
+ * The meeting link column is filled in by hand once the transfer is
+ * confirmed and the meeting has been created.
  *
  * SETUP
  *  1. Create a new Google Sheet. Name the first tab "Bookings".
@@ -39,9 +42,8 @@ var HEADERS = [
   'Format',
   'Amount (NGN)',
   'Payment reference',
-  'Zoom meeting ID',
-  'Zoom join link',
-  'Passcode',
+  'Payment status',
+  'Meeting link (added by hand)',
   'What they want to work through',
   'What should be true afterwards'
 ];
@@ -94,9 +96,8 @@ function doPost(e) {
       body.format || '',
       body.amountNaira || '',
       reference,
-      body.meetingId || '',
-      body.joinUrl || '',
-      body.passcode || '',
+      body.status || 'Awaiting payment',
+      '',
       body.reason || '',
       body.outcome || ''
     ]);
@@ -149,9 +150,8 @@ function findByReference(sheet, reference) {
         email: String(values[4]),
         company: String(values[5]),
         reference: String(values[11]),
-        meetingId: String(values[12]),
-        joinUrl: String(values[13]),
-        passcode: String(values[14])
+        status: String(values[12]),
+        joinUrl: String(values[13])
       };
     }
   }
@@ -160,7 +160,7 @@ function findByReference(sheet, reference) {
 
 function notify(body, reference) {
   var lines = [
-    'Consultation booked and paid.',
+    'Consultation slot requested. Payment not yet confirmed.',
     '',
     'When:      ' + (body.date || '') + ' at ' + (body.time || '') + ' WAT',
     'Who:       ' + (body.name || '') + (body.role ? ', ' + body.role : ''),
@@ -171,7 +171,10 @@ function notify(body, reference) {
     'Amount:    NGN ' + (body.amountNaira || ''),
     'Reference: ' + reference,
     '',
-    'Zoom: ' + (body.joinUrl || 'NOT CREATED, set it up by hand'),
+    'Status:    ' + (body.status || 'Awaiting payment'),
+    '',
+    'Next: confirm the transfer, create the meeting, send the link, then set',
+    'Payment status to Paid on the row.',
     '',
     'What they want to work through:',
     body.reason || '',

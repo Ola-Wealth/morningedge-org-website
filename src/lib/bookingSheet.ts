@@ -25,9 +25,8 @@ export type BookingRow = {
   reason: string;
   outcome: string;
   amountNaira: number;
-  meetingId: string;
-  joinUrl: string;
-  passcode: string;
+  /** "Awaiting payment" until the transfer is confirmed by hand. */
+  status: string;
 };
 
 async function call(payload: Record<string, unknown>) {
@@ -40,18 +39,6 @@ async function call(payload: Record<string, unknown>) {
   });
   if (!res.ok) throw new Error(`Bookings sheet responded ${res.status}`);
   return (await res.json()) as { result?: string; found?: boolean; row?: Partial<BookingRow> };
-}
-
-/** Has this payment reference already been recorded? */
-export async function lookup(reference: string) {
-  if (!sheetConfigured) return null;
-  try {
-    const out = await call({ action: "lookup", reference });
-    return out.found ? (out.row ?? null) : null;
-  } catch {
-    // A logging failure must not block a paid booking.
-    return null;
-  }
 }
 
 export async function record(row: BookingRow) {

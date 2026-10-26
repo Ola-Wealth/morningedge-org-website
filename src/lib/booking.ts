@@ -20,6 +20,36 @@ export function formatNaira(naira: number) {
   return `₦${naira.toLocaleString("en-NG")}`;
 }
 
+/**
+ * The account consultation fees are paid into.
+ *
+ * Fill these in and the account block appears on the booking page and in the
+ * confirmation email. While `number` is empty the block stays hidden and the
+ * page tells the visitor the details will be emailed, so nothing incorrect is
+ * ever shown.
+ */
+export const BANK = {
+  name: "",          // e.g. "Guaranty Trust Bank"
+  accountName: "",   // e.g. "MorningEdge Dynamic Systems Limited"
+  number: "",        // e.g. "0123456789"
+};
+
+export const bankPublished = Boolean(BANK.number && BANK.accountName && BANK.name);
+
+/**
+ * A short payment reference the client quotes on the transfer, so a credit
+ * alert can be matched to a booking. Short enough to type into a narration.
+ */
+export function makeReference(now = new Date()) {
+  const stamp = now.toISOString().slice(2, 10).replace(/-/g, "");
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no look-alikes
+  let tail = "";
+  for (let i = 0; i < 4; i++) {
+    tail += alphabet[Math.floor(Math.random() * alphabet.length)];
+  }
+  return `ME-${stamp}-${tail}`;
+}
+
 /** Weekday evening slots, Lagos time. */
 export const SLOTS = ["5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm"] as const;
 
