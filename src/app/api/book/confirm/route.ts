@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { CONSULTATION, describeSlot } from "@/lib/booking";
+import { CONSULTATION, describeSlot, normaliseDate, normaliseTime } from "@/lib/booking";
 import { lookup, markPaid } from "@/lib/bookingSheet";
 import { mailConfigured, sendMail } from "@/lib/mailer";
 import { verifyReference } from "@/lib/confirmToken";
@@ -40,7 +40,7 @@ export async function GET(request: Request) {
     name: row.name ?? "",
     email: row.email ?? "",
     company: row.company ?? "",
-    when: describeSlot(String(row.date ?? ""), String(row.time ?? "")),
+    when: describeSlot(normaliseDate(String(row.date ?? "")), normaliseTime(String(row.time ?? ""))),
     status: row.status ?? "",
     alreadyPaid: String(row.status ?? "").toLowerCase().startsWith("paid"),
   });
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 
   const email = String(row.email ?? "");
   const name = String(row.name ?? "");
-  const when = describeSlot(String(row.date ?? ""), String(row.time ?? ""));
+  const when = describeSlot(normaliseDate(String(row.date ?? "")), normaliseTime(String(row.time ?? "")));
 
   if (!email) {
     return NextResponse.json(

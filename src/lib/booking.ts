@@ -69,6 +69,40 @@ export function isWeekendDate(value: string) {
   return day === 0 || day === 6;
 }
 
+/**
+ * Google Sheets turns anything date-shaped into a spreadsheet value, so a
+ * booking read back arrives as "Thu Oct 29 2026 00:00:00 GMT+0100" and
+ * "Sat Dec 30 1899 18:00:00 GMT+0013" rather than the strings that went in.
+ * These put both back into the shapes the rest of the code expects.
+ */
+export function normaliseDate(value: string): string {
+  const s = String(value ?? "").trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const d = new Date(s);
+  if (Number.isNaN(d.getTime())) return s;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Lagos",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
+export function normaliseTime(value: string): string {
+  const s = String(value ?? "").trim();
+  if (/^\d{1,2}:\d{2}(am|pm)$/i.test(s)) return s.toLowerCase();
+  const d = new Date(s);
+  if (Number.isNaN(d.getTime())) return s;
+  const out = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Lagos",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(d);
+  // Strip the space, including the narrow no-break space some runtimes use.
+  return out.replace(/[\s  ]/g, "").toLowerCase();
+}
+
 /** "2026-10-27" and "5:00pm" to "Tuesday, 27 October 2026 at 5:00pm WAT". */
 export function describeSlot(date: string, time: string) {
   const p = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
