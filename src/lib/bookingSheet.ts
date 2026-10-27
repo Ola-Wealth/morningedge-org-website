@@ -41,6 +41,42 @@ async function call(payload: Record<string, unknown>) {
   return (await res.json()) as { result?: string; found?: boolean; row?: Partial<BookingRow> };
 }
 
+export type StoredBooking = {
+  reference: string;
+  name: string;
+  email: string;
+  company: string;
+  date: string;
+  time: string;
+  status: string;
+  joinUrl: string;
+};
+
+/** Read one booking back by its reference. Null when absent or unreachable. */
+export async function lookup(reference: string): Promise<Partial<StoredBooking> | null> {
+  if (!sheetConfigured) return null;
+  try {
+    const out = (await call({ action: "lookup", reference })) as {
+      found?: boolean;
+      row?: Partial<StoredBooking>;
+    };
+    return out.found ? (out.row ?? null) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Mark a booking paid and store the link that was sent. */
+export async function markPaid(reference: string, joinUrl: string) {
+  if (!sheetConfigured) return false;
+  try {
+    const out = (await call({ action: "confirm", reference, joinUrl })) as { result?: string };
+    return out.result === "success";
+  } catch {
+    return false;
+  }
+}
+
 export async function record(row: BookingRow) {
   if (!sheetConfigured) return false;
   try {

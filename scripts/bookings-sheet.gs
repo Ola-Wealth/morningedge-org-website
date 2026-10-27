@@ -43,7 +43,7 @@ var HEADERS = [
   'Amount (NGN)',
   'Payment reference',
   'Payment status',
-  'Meeting link (added by hand)',
+  'Meeting link sent',
   'What they want to work through',
   'What should be true afterwards'
 ];
@@ -72,6 +72,15 @@ function doPost(e) {
 
     if (action === 'lookup') {
       return json(found ? { result: 'success', found: true, row: found } : { result: 'success', found: false });
+    }
+
+    if (action === 'confirm') {
+      if (!found) return json({ result: 'error', error: 'not found' });
+      sheet.getRange(found.rowNumber, STATUS_COLUMN).setValue('Paid');
+      if (body.joinUrl) {
+        sheet.getRange(found.rowNumber, LINK_COLUMN).setValue(String(body.joinUrl));
+      }
+      return json({ result: 'success', row: found });
     }
 
     if (action !== 'record') {
@@ -134,6 +143,8 @@ function getSheet() {
 }
 
 var REFERENCE_COLUMN = 12; // "Payment reference"
+var STATUS_COLUMN = 13;    // "Payment status"
+var LINK_COLUMN = 14;      // "Meeting link sent"
 
 function findByReference(sheet, reference) {
   var lastRow = sheet.getLastRow();
@@ -144,11 +155,13 @@ function findByReference(sheet, reference) {
     if (String(refs[i][0]).trim() === reference) {
       var values = sheet.getRange(i + 2, 1, 1, HEADERS.length).getValues()[0];
       return {
+        rowNumber: i + 2,
         date: String(values[1]),
         time: String(values[2]),
         name: String(values[3]),
         email: String(values[4]),
         company: String(values[5]),
+        role: String(values[6]),
         reference: String(values[11]),
         status: String(values[12]),
         joinUrl: String(values[13])

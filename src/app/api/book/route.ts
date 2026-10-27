@@ -11,6 +11,7 @@ import {
 } from "@/lib/booking";
 import { mailConfigured, sendMail } from "@/lib/mailer";
 import { record } from "@/lib/bookingSheet";
+import { confirmConfigured, signReference } from "@/lib/confirmToken";
 import { site } from "@/lib/site";
 
 /**
@@ -76,6 +77,7 @@ export async function POST(request: Request) {
       name, email, company, role, attendees, attendeeRoles, format, reason, outcome,
       date: (body.date || "").trim(),
       time: (body.time || "").trim(),
+      origin: new URL(request.url).origin,
     });
   }
 
@@ -91,7 +93,7 @@ type Common = {
   reason: string; outcome: string;
 };
 
-async function consultation(d: Common & { date: string; time: string }) {
+async function consultation(d: Common & { date: string; time: string; origin: string }) {
   if (!slotTo24h(d.time) || !/^\d{4}-\d{2}-\d{2}$/.test(d.date)) {
     return NextResponse.json(
       { result: "error", error: "Please choose a date and a time." },
@@ -148,8 +150,17 @@ async function consultation(d: Common & { date: string; time: string }) {
       "What should be true afterwards:",
       d.outcome || "Not provided",
       "",
-      "Next: confirm the transfer, send them the link below, then mark the row Paid.",
-      ...(MEETING_URL ? ["", "Meeting room to send them:", MEETING_URL] : []),
+      ...(confirmConfigured
+        ? [
+            "When the transfer lands, open this and press the button. It emails them the",
+            "meeting link and marks the row paid:",
+            "",
+            `${d.origin}/book/confirm?ref=${encodeURIComponent(reference)}&t=${signReference(reference)}`,
+          ]
+        : [
+            "Next: confirm the transfer, send them the link below, then mark the row Paid.",
+            ...(MEETING_URL ? ["", "Meeting room to send them:", MEETING_URL] : []),
+          ]),
     ].join("\n");
 
     try {
