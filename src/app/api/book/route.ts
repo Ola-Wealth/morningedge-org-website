@@ -109,7 +109,7 @@ async function consultation(d: Common & { date: string; time: string }) {
   const when = describeSlot(d.date, d.time);
   const amount = CONSULTATION.amountNaira;
 
-  await record({
+  const logged = await record({
     reference,
     name: d.name,
     email: d.email,
@@ -125,6 +125,8 @@ async function consultation(d: Common & { date: string; time: string }) {
     amountNaira: amount,
     status: "Awaiting payment",
   });
+
+  let notified = false;
 
   if (mailConfigured) {
     const toOla = [
@@ -157,8 +159,9 @@ async function consultation(d: Common & { date: string; time: string }) {
         text: toOla,
         replyTo: d.email,
       });
+      notified = true;
     } catch {
-      /* The request stands even when the notification fails. */
+      /* Checked below: a booking nobody hears about must not look accepted. */
     }
 
     const toClient = [
@@ -194,6 +197,18 @@ async function consultation(d: Common & { date: string; time: string }) {
     } catch {
       /* Shown on screen regardless. */
     }
+  }
+
+  // A booking that reached neither the log nor the inbox has not been taken,
+  // whatever the visitor was about to be told.
+  if (!logged && !notified) {
+    return NextResponse.json(
+      {
+        result: "error",
+        error: "We could not record that booking. Please email us and the slot will be held.",
+      },
+      { status: 502 }
+    );
   }
 
   return NextResponse.json({
