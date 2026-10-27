@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-const WEBHOOK_URL =
-  process.env.GOOGLE_SHEET_WEBHOOK_URL ??
-  process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ??
-  "";
+// Server-side only. There is deliberately no NEXT_PUBLIC fallback: that
+// prefix publishes the value to every visitor, and anyone holding this URL
+// can write rows into the sheet.
+const WEBHOOK_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL ?? "";
 
 type Payload = Record<string, string>;
 

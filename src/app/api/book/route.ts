@@ -25,10 +25,10 @@ import { site } from "@/lib/site";
  * reference, and the meeting link is sent by hand once the credit lands.
  */
 
-const CONTACT_WEBHOOK =
-  process.env.GOOGLE_SHEET_WEBHOOK_URL ??
-  process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ??
-  "";
+// Server-side only. There is deliberately no NEXT_PUBLIC fallback: that
+// prefix publishes the value to every visitor, and anyone holding this URL
+// can write rows into the sheet.
+const CONTACT_WEBHOOK = process.env.GOOGLE_SHEET_WEBHOOK_URL ?? "";
 
 /**
  * The standing meeting room consultations are held in. It carries its own
