@@ -82,6 +82,43 @@ const steps = [
   { n: "4", t: "Sustain", icon: RefreshCw, d: "Maintenance, refreshers, and run cost, quoted inside the build and never chased afterwards. Built to run without us." },
 ];
 
+/**
+ * Drawn from the end of programme review of a delivered engagement. Every line
+ * traces to a response; the client is anonymised and nothing here is invented.
+ */
+const outcomes = [
+  {
+    icon: Search,
+    title: "Prompting became a method, not a guess.",
+    body: "People stopped asking in one line and started setting context, role, action, format and tone. One engineer described moving from generic prompts to that structure, and getting more control over what came back.",
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "The work moved into the tools already on the desk.",
+    body: "Named uses afterwards: drafting and tightening documents, building decks, filtering and analysing spreadsheet data, and summarising and answering mail. No new software was bought to do any of it.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Repeat work turned into a routine.",
+    body: "One salesperson now collects daily activity and returns a weekly report in a set format. Internal audit drafts policy and summarises reports. A product team generates test cases.",
+  },
+];
+
+const quotes = [
+  {
+    text: "“It was eye opening for me. I felt I was already AI savvy till the class exposed gaps.”",
+    role: "Enterprise sales",
+  },
+  {
+    text: "“I gained practical experience using tools like Microsoft Copilot and learned how AI can improve my productivity, problem solving and technical skills.”",
+    role: "Systems and networks",
+  },
+  {
+    text: "“That using Microsoft Copilot for work is safe for keeping company data.”",
+    role: "Customer service, on what stayed with them",
+  },
+];
+
 const founderRoles = [
   { icon: Briefcase, label: "Business Operations Executive" },
   { icon: Cpu, label: "AI Systems Consultant" },
@@ -331,6 +368,56 @@ export default function HomePage() {
                 </tbody>
               </table>
             </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ── WHAT CHANGED ── */}
+      <section className="border-b border-(--line)">
+        <Container className="py-20 lg:py-24">
+          <Reveal>
+            <h2 className={`${h2} max-w-3xl`}>What people did differently afterwards.</h2>
+            <p className="measure mt-6 text-[15px] leading-relaxed text-(--ink-soft)">
+              From an eight session programme run with a Nigerian technology group, reviewed at the
+              end by the people who sat in it. The client is not named and the words below are
+              theirs, unedited.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {outcomes.map((o, i) => (
+              <Reveal key={o.title} delay={i * 80}>
+                <div className="card-sheen hover-lift h-full rounded-2xl border border-(--line) bg-(--surface) p-7 shadow-soft">
+                  <IconChip size="sm"><o.icon size={16} /></IconChip>
+                  <h3 className="mt-5 text-lg leading-snug">{o.title}</h3>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-(--ink-soft)">{o.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {quotes.map((q, i) => (
+              <Reveal key={q.role} delay={i * 80}>
+                <figure className="card-sheen h-full rounded-2xl border border-(--line) bg-(--panel) p-7">
+                  <blockquote
+                    className="text-[15px] leading-relaxed text-(--ink)"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
+                    {q.text}
+                  </blockquote>
+                  <figcaption className="mt-4 text-[13px] text-(--ink-faint)">{q.role}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <p className="measure mt-10 text-[13.5px] leading-relaxed text-(--ink-faint)">
+              Eighteen participants responded. Nine had already used it on real work. Self rated
+              confidence rose for eleven. We report what the review returned, including the part
+              that says the programme suited beginners best.
+            </p>
           </Reveal>
         </Container>
       </section>
