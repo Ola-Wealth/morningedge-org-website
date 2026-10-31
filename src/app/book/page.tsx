@@ -48,12 +48,11 @@ function BookingForm() {
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
 
   // Resolved after mount so the server and client render the same markup.
-  // The earliest date is the next weekday rather than simply tomorrow. On a
-  // Friday or over a weekend the old version offered a Saturday or Sunday and
-  // then rejected it, which reads as the form being broken.
+  // Today counts when it is a weekday: consultations run in the evening, so
+  // someone filling this in during the afternoon is booking tonight. Forcing
+  // tomorrow left same-day bookings with no selectable date at all.
   useEffect(() => {
     const d = new Date();
-    d.setDate(d.getDate() + 1);
     while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
     const pad = (n: number) => String(n).padStart(2, "0");
     setMinDate(`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`);
@@ -65,7 +64,18 @@ function BookingForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (dateError) return;
+
+    // Never return without saying why. A silent exit here left the button
+    // looking dead, and a real booking was lost to it.
+    if (dateError) {
+      setStatus("error");
+      setErrorMsg(dateError);
+      const field = e.currentTarget.querySelector<HTMLInputElement>('input[name="date"]');
+      field?.focus();
+      field?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
     setStatus("loading");
     setErrorMsg("");
 

@@ -114,9 +114,11 @@ async function consultation(d: Common & { date: string; time: string; origin: st
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  if (d.date <= todayLagos) {
+  // Today is allowed, since the slots run in the evening. Only days that have
+  // already gone are refused.
+  if (d.date < todayLagos) {
     return NextResponse.json(
-      { result: "error", error: "Please pick a date in the future." },
+      { result: "error", error: "That date has passed. Please pick another." },
       { status: 422 }
     );
   }
