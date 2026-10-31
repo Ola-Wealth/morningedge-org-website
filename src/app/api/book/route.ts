@@ -106,6 +106,20 @@ async function consultation(d: Common & { date: string; time: string; origin: st
       { status: 422 }
     );
   }
+  // Dates sort correctly as plain strings in this format, so comparing against
+  // today in Lagos is enough to refuse a slot that has already passed.
+  const todayLagos = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Lagos",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  if (d.date <= todayLagos) {
+    return NextResponse.json(
+      { result: "error", error: "Please pick a date in the future." },
+      { status: 422 }
+    );
+  }
 
   const reference = makeReference();
   const when = describeSlot(d.date, d.time);

@@ -48,10 +48,15 @@ function BookingForm() {
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
 
   // Resolved after mount so the server and client render the same markup.
+  // The earliest date is the next weekday rather than simply tomorrow. On a
+  // Friday or over a weekend the old version offered a Saturday or Sunday and
+  // then rejected it, which reads as the form being broken.
   useEffect(() => {
     const d = new Date();
     d.setDate(d.getDate() + 1);
-    setMinDate(d.toISOString().slice(0, 10));
+    while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+    const pad = (n: number) => String(n).padStart(2, "0");
+    setMinDate(`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`);
   }, []);
 
   function handleDate(e: React.ChangeEvent<HTMLInputElement>) {
