@@ -157,13 +157,13 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/scorecard" size="lg">
-                Score your Copilot adoption <ArrowRight size={17} />
+                Check your AI exposure <ArrowRight size={17} />
               </ButtonLink>
               <ButtonLink href="/contact" variant="secondary" size="lg">
                 Book a diagnostic
               </ButtonLink>
             </div>
-            <p className="mt-4 text-sm text-(--ink-faint)">Free. Twelve questions. About four minutes.</p>
+            <p className="mt-4 text-sm text-(--ink-faint)">A free four-minute check of how your staff use AI, what it is returning, and where the risk sits.</p>
           </div>
 
           {/* Row 2: the photograph, full width */}
@@ -531,7 +531,7 @@ export default function HomePage() {
                   Book a diagnostic <ArrowRight size={17} />
                 </ButtonLink>
                 <ButtonLink href="/scorecard" variant="secondary" size="lg">
-                  Take the Copilot scorecard
+                  Check your AI exposure
                 </ButtonLink>
               </div>
               <p className="mt-8 text-base italic text-(--ink-soft)" style={{ fontFamily: "var(--font-serif)" }}>

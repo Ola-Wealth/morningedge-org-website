@@ -133,7 +133,7 @@ export default function AdoptionStandardPage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-              <ButtonLink href="/scorecard" variant="secondary">Score your Copilot adoption</ButtonLink>
+              <ButtonLink href="/scorecard" variant="secondary">Check your AI exposure</ButtonLink>
             </div>
           </Reveal>
         </Container>

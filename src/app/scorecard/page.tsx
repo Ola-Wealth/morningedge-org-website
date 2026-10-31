@@ -115,7 +115,7 @@ export default function ScorecardPage() {
         <Container className="py-16 lg:py-24">
           {stage === "intro" && (
             <Reveal className="max-w-4xl">
-              <p className={labelClass}>The AI Edge · Free scorecard</p>
+              <p className={labelClass}>The AI Edge · Free AI exposure check</p>
               <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
                 Your staff already have the tool. Find out how many have opened it.
               </h1>

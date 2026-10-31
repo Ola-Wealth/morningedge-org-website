@@ -21,7 +21,7 @@ export function ButtonLink({
   className?: string;
 }) {
   const base =
-    "pressable inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap";
+    "pressable inline-flex items-center justify-center gap-2 rounded-lg font-medium text-center sm:whitespace-nowrap";
   const sizing = size === "lg" ? "px-7 py-4 text-[15px]" : "px-6 py-3.5 text-sm";
   const styles = {
     primary:

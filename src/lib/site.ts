@@ -21,6 +21,6 @@ export const nav = [
   { href: "/operations-core", label: "The Operations Core" },
   { href: "/adoption-standard", label: "Adoption Standard" },
   { href: "/approach", label: "Approach" },
-  { href: "/scorecard", label: "Scorecard" },
+  { href: "/scorecard", label: "AI Exposure Check" },
   { href: "/about", label: "About" },
 ];

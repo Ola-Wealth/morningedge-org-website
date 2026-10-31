@@ -52,7 +52,7 @@ export default function AiEdgePage() {
         image="/pictures/IMG_342_5.jpeg"
         alt="Olamilekan E. Wealth teaching a room of professionals in Lagos"
         imagePosition="object-[center_30%]"
-        primary={{ href: "/scorecard", label: "Score your Copilot adoption" }}
+        primary={{ href: "/scorecard", label: "Check your AI exposure" }}
         secondary={{ href: "/contact", label: "Book a diagnostic" }}
       />
 
@@ -159,7 +159,7 @@ export default function AiEdgePage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
-              <ButtonLink href="/scorecard" variant="secondary">Score your Copilot adoption first</ButtonLink>
+              <ButtonLink href="/scorecard" variant="secondary">Check your AI exposure</ButtonLink>
             </div>
           </Reveal>
         </Container>
