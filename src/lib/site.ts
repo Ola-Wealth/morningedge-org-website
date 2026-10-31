@@ -6,6 +6,7 @@ export const site = {
   email: "hello@morningedgesystems.com",
   phone: "+234 915 782 9728",
   phoneHref: "tel:+2349157829728",
+  whatsapp: "2348124691426",
   location: "Lagos, Nigeria",
   registeredOffice: "1, Epic Place, Lekki-Epe Expressway, Epe, Lagos State",
   cohortUrl: "https://aiedge.morningedgesystems.com",
@@ -20,5 +21,6 @@ export const nav = [
   { href: "/operations-core", label: "The Operations Core" },
   { href: "/adoption-standard", label: "Adoption Standard" },
   { href: "/approach", label: "Approach" },
+  { href: "/scorecard", label: "Scorecard" },
   { href: "/about", label: "About" },
 ];

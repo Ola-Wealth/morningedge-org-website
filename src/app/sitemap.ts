@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/operations-core/erp", priority: 0.9, freq: "monthly" },
     { path: "/operations-core/ai-integration", priority: 0.9, freq: "monthly" },
     { path: "/adoption-standard", priority: 0.8, freq: "monthly" },
+    { path: "/scorecard", priority: 0.8, freq: "monthly" },
     { path: "/approach", priority: 0.7, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "monthly" },
     { path: "/contact", priority: 0.7, freq: "yearly" },

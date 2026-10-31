@@ -131,8 +131,9 @@ export default function AdoptionStandardPage() {
               Nobody else in this market will. Bring us the work that keeps failing to stick, and we will
               tell you what we can commit to, in writing.
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href="/contact">Book a diagnostic <ArrowRight size={16} /></ButtonLink>
+              <ButtonLink href="/scorecard" variant="secondary">Score your Copilot adoption</ButtonLink>
             </div>
           </Reveal>
         </Container>

@@ -155,6 +155,15 @@ export default function HomePage() {
               We train your people to use AI in the tools they already have. We put your operations
               on one system. Then we commit to a usage number, so you can see the change is real.
             </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <ButtonLink href="/scorecard" size="lg">
+                Score your Copilot adoption <ArrowRight size={17} />
+              </ButtonLink>
+              <ButtonLink href="/contact" variant="secondary" size="lg">
+                Book a diagnostic
+              </ButtonLink>
+            </div>
+            <p className="mt-4 text-sm text-(--ink-faint)">Free. Twelve questions. About four minutes.</p>
           </div>
 
           {/* Row 2: the photograph, full width */}
@@ -520,6 +529,9 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/contact" size="lg">
                   Book a diagnostic <ArrowRight size={17} />
+                </ButtonLink>
+                <ButtonLink href="/scorecard" variant="secondary" size="lg">
+                  Take the Copilot scorecard
                 </ButtonLink>
               </div>
               <p className="mt-8 text-base italic text-(--ink-soft)" style={{ fontFamily: "var(--font-serif)" }}>
