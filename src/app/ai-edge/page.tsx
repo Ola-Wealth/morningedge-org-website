@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
@@ -49,8 +50,8 @@ export default function AiEdgePage() {
       <PageHero
         title="Your staff already have the tool. They have never opened it."
         lead="The AI Edge puts capability into your people. They produce more using AI inside the tools you already pay for. Microsoft 365 Copilot, in Outlook, Excel, Word and Teams, where the work actually lives."
-        image="/pictures/IMG_342_5.jpeg"
-        alt="Olamilekan E. Wealth teaching a room of professionals in Lagos"
+        image="/pictures/training-stage.jpg"
+        alt="Olamilekan E. Wealth speaking to a room during an AI training session"
         imagePosition="object-[center_30%]"
         primary={{ href: "/scorecard", label: "Check your AI exposure" }}
         secondary={{ href: "/contact", label: "Book a diagnostic" }}
@@ -59,24 +60,37 @@ export default function AiEdgePage() {
       {/* WHY COPILOT */}
       <section className="border-b border-(--line)">
         <Container className="py-20 lg:py-24">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
-            <Reveal>
-              <h2 className="mt-5 text-3xl leading-tight">Not a chatbot. The tool on the desk.</h2>
-            </Reveal>
-            <Reveal delay={100} className="lg:col-span-2">
-              <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
-                <p>
-                  The work lives in Outlook, Excel, Word, Teams and SharePoint. Microsoft 365 Copilot is
-                  built into those apps, and most staff do not know it is there. We teach in the tool the
-                  company already owns, on the tasks people do every day.
-                </p>
-                <p>
-                  Demonstrating in any other tool tells the room that the thing they already pay for is the
-                  consolation prize. It is not. It is the fastest return available, because the licence is
-                  already bought.
-                </p>
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
+              <div className="photo-frame aspect-[3/4] shadow-soft-lg">
+                <Image
+                  src="/pictures/training-workshop.jpg"
+                  alt="A working session in progress, with prompt engineering and agentic AI worked through on the whiteboard"
+                  fill
+                  className="object-cover object-[center_30%]"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
               </div>
             </Reveal>
+            <div className="flex flex-col gap-6 lg:col-span-7">
+              <Reveal>
+                <h2 className="text-3xl leading-tight">Not a chatbot. The tool on the desk.</h2>
+              </Reveal>
+              <Reveal delay={100}>
+                <div className="measure flex flex-col gap-4 text-[15px] leading-relaxed text-(--ink-soft)">
+                  <p>
+                    The work lives in Outlook, Excel, Word, Teams and SharePoint. Microsoft 365 Copilot is
+                    built into those apps, and most staff do not know it is there. We teach in the tool the
+                    company already owns, on the tasks people do every day.
+                  </p>
+                  <p>
+                    Demonstrating in any other tool tells the room that the thing they already pay for is the
+                    consolation prize. It is not. It is the fastest return available, because the licence is
+                    already bought.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </Container>
       </section>
