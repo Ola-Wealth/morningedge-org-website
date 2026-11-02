@@ -90,7 +90,8 @@ function ContactForm() {
           <label htmlFor="employees" className={labelClass}>Number of staff</label>
           <select id="employees" name="employees" className={`${field} cursor-pointer`} defaultValue="">
             <option value="" disabled>Select</option>
-            <option>Under 50</option>
+            <option>Under 10</option>
+            <option>10 to 49</option>
             <option>50 to 200</option>
             <option>201 to 500</option>
             <option>Over 500</option>
@@ -195,8 +196,10 @@ export default function ContactPage() {
                 <div className="border-t border-(--line) pt-8">
                   <p className={labelClass}>Best fit</p>
                   <p className="mt-3 text-[15px] leading-relaxed text-(--ink-soft)">
-                    Companies of 50 to 500 staff, two or more entities, closing books in spreadsheets, or a
-                    function ready to get real work out of the tools it already pays for.
+                    Businesses from about five staff upwards. Fit follows the work, not the headcount: a
+                    small firm automating a workflow or building AI on its own documents, a function ready
+                    to get real work out of the tools it already pays for, or a group with several entities
+                    closing its books in spreadsheets.
                   </p>
                 </div>
               </div>
