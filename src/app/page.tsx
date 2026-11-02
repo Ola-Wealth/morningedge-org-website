@@ -49,10 +49,10 @@ const pillars = [
     buyer: "Deputy MD, function head, Head of HR or L&D",
     length: "4 to 10 weeks, fixed fee",
     href: "/ai-edge",
-    image: "/pictures/training-session.jpg",
-    alt: "Olamilekan E. Wealth teaching a room during a session",
+    image: "/pictures/IMG_342_2.jpeg",
+    alt: "A facilitator presenting to a team in a working session",
     icon: Users,
-    position: "object-[center_25%]",
+    position: "object-[center_20%]",
   },
   {
     kicker: "Pillar B",
