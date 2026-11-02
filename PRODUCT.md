@@ -7,9 +7,27 @@ Durable product truth for the firm website. Visual decisions live in DESIGN.md a
 MorningEdge is a business operations firm in Lagos, Nigeria. It sells two separable products under one master brand:
 
 - **The AI Edge (Pillar A).** Capability goes into the people. Staff produce more using AI inside the tools the company already pays for, primarily Microsoft 365 Copilot, in the app where the work lives.
-- **The Operations Core (Pillar B).** Capability goes into the software. Two service lines: Enterprise Resource Planning on ERPNext (one centralised system holding every operation and every naira, configured for naira, VAT, WHT, FIRS, multi-entity consolidation, NDPA), and AI Integration (AI built into the workflow to carry work end to end: support agents, document capture, exception detection, report generation).
+- **The Operations Core (Pillar B).** Capability goes into the software. Two service lines, Enterprise Resource Planning and AI Integration.
+
+**Enterprise Resource Planning.** One centralised system holding every operation and every naira, built on ERPNext, configured for naira, VAT, WHT, FIRS, multi-entity consolidation and NDPA.
+
+**AI Integration.** Two distinct pieces of work, and most enquiries are about one or the other without knowing the name for it:
+
+- **Workflow automation and agents.** AI placed inside a workflow the business already runs, so a step that needed a person no longer does. Support agents that answer and close cases, document capture that reads an invoice and posts it, exception detection that flags what broke, report generation that produces the pack, and system to system automation that moves work between tools without a human copying it across. This is what people mean when they say *AI adoption*.
+- **Native AI builds.** The company's own AI, built on the company's own material rather than rented off a public chatbot. Retrieval pipelines (RAG) over a client's documents, policies, contracts and records so answers come from their own corpus with sources attached; assistants fitted to one function; and models that stay inside the client's environment under their own governance and NDPA position.
 
 Either pillar can be bought alone. Neither requires the other. The separating sentence, used verbatim: *The AI Edge teaches your people to use AI. AI Integration builds AI that does the job.*
+
+## Plain language (the questions clients actually ask)
+
+Most enquiries open with a definition question, not a buying question. These answers are canonical and belong on the site in roughly these words.
+
+- **AI adoption** is putting AI agents and automation inside the workflows the business already runs. It is not a training course and not a chatbot subscription. The test is whether a step that used to need a person still needs one.
+- **An AI agent** is software that completes a task end to end and hands back a result, rather than waiting to be prompted each step.
+- **Workflow automation** is work moving between people and systems without anyone copying it across by hand.
+- **A native AI build** is AI that runs on the company's own documents and data, inside the company's own environment, instead of a public tool that knows nothing about the business.
+- **RAG** is how a native build answers from the company's own material and shows where each answer came from.
+- **An ERP** is one system holding operations and financials together, so the numbers come from the system rather than from a meeting.
 
 ## The mechanism
 
@@ -19,7 +37,9 @@ The load-bearing differentiator is **the Adoption Standard**: measured usage wri
 
 ## Audience and scene
 
-Primary visitor: a Nigerian MD or Group CEO, 50 to 500 staff, two or more entities or locations, closing books in spreadsheets. Sceptical, sold consulting before, checking whether this firm is real, often on a phone on mobile data, deciding in about ninety seconds whether to fill the form. Secondary: a function head or Head of HR looking for AI enablement for a team.
+**Fit is decided by the work, not by headcount.** The firm serves businesses from about five staff upwards. A five person firm buys a workflow automation, a native build, or Copilot enablement for everyone in the room. A fifty to five hundred person group with two or more entities buys the ERP. Both are real clients and the site must say so; an earlier version named 50 to 500 as the band and turned away smaller businesses that were a good fit for the other lines.
+
+Primary visitor: a Nigerian MD, Group CEO or owner, sceptical, sold consulting before, checking whether this firm is real, often on a phone on mobile data, deciding in about ninety seconds whether to fill the form. Secondary: a function head or Head of HR looking for AI enablement for a team, and increasingly an owner or operations lead who has heard "AI adoption" and wants to know what it would actually mean in their business.
 
 ## Purpose of the site
 
@@ -31,7 +51,8 @@ Persuade. A visitor must understand within seconds that MorningEdge sells two se
 - No animated count-up statistics. No prices on the site (all "On application").
 - Founder-led firm with a specialist delivery network; never describe a large team. Partners are not named.
 - Founding phrasing, exactly: "Founded 2022. Incorporated as MorningEdge Dynamic Systems Limited in 2026." Legal name and RC 9652432 appear only in the footer, legal pages and About.
-- Named instruments, always specific: ERPNext, Microsoft 365 Copilot, FIRS, VAT, WHT, NDPA, naira.
+- Named instruments, always specific: ERPNext, Microsoft 365 Copilot, FIRS, VAT, WHT, NDPA, naira, RAG.
+- Define the jargon on the page. Any term a client has had to ask about (AI adoption, agent, RAG, native build, ERP) is explained in one plain sentence where it first appears, never assumed.
 - Photography: real founder portraits and real work scenes only, never stock strangers presented as staff or clients.
 - Content renders fully with JavaScript disabled. Mobile first.
 

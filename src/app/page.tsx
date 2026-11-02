@@ -58,7 +58,7 @@ const pillars = [
     kicker: "Pillar B",
     title: "The Operations Core",
     line: "Capability goes into your software.",
-    body: "The system does the work instead of a person holding it in a spreadsheet. Two lines: Enterprise Resource Planning on ERPNext, and AI Integration.",
+    body: "The system does the work instead of a person holding it in a spreadsheet. Two lines: Enterprise Resource Planning on ERPNext, and AI Integration, which covers both automating a workflow and building AI on your own material.",
     buyer: "Managing Director, Group CEO, Finance Director",
     length: "6 weeks to 9 months, phased, plus run cost",
     href: "/operations-core",
@@ -66,6 +66,46 @@ const pillars = [
     alt: "An operations wall of process notes being worked through",
     icon: Layers,
     position: "object-center",
+  },
+];
+
+/**
+ * The four things the firm is actually hired to do, each said in plain words.
+ * Clients ring up asking what the terms mean, so every line defines itself
+ * rather than assuming the reader already knows.
+ */
+const services = [
+  {
+    icon: Users,
+    name: "AI enablement for your people",
+    plain:
+      "Your staff do more in Microsoft 365 Copilot, inside Outlook, Excel, Word and Teams, where the work already happens.",
+    pillar: "The AI Edge",
+    href: "/ai-edge",
+  },
+  {
+    icon: Bot,
+    name: "AI adoption: agents and automation",
+    plain:
+      "AI placed inside a workflow you already run, so a step that needed a person no longer does. Support cases answered and closed, invoices read and posted, exceptions flagged, reports produced, work moved between systems without anyone copying it across.",
+    pillar: "AI Integration",
+    href: "/operations-core/ai-integration",
+  },
+  {
+    icon: Database,
+    name: "AI built on your own material",
+    plain:
+      "Your documents, policies, contracts and records become AI that answers from them and shows where each answer came from. Retrieval pipelines, assistants fitted to one function, and models that stay inside your environment under your own governance.",
+    pillar: "AI Integration",
+    href: "/operations-core/ai-integration",
+  },
+  {
+    icon: Layers,
+    name: "Enterprise Resource Planning",
+    plain:
+      "One system holding operations and financials together, built on ERPNext and configured for naira, VAT, WHT, FIRS, multi-entity consolidation and NDPA.",
+    pillar: "The Operations Core",
+    href: "/operations-core/erp",
   },
 ];
 
@@ -300,7 +340,62 @@ export default function HomePage() {
             })}
           </div>
 
-          <p className="mx-auto mt-12 max-w-2xl text-center text-xl leading-snug text-(--ink)" style={{ fontFamily: "var(--font-serif)" }}>
+          {/* What those two products actually mean, in the words clients use */}
+          <div className="mt-16 border-t border-(--line) pt-14">
+            <Reveal>
+              <h3 className={`${h2} max-w-2xl`}>What we are actually hired to do.</h3>
+              <p className="measure mt-6 text-[15px] leading-relaxed text-(--ink-soft)">
+                Most people arrive asking what the words mean before they ask what it costs.
+                So here are the four, said plainly.
+              </p>
+            </Reveal>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+              {services.map((s, i) => {
+                const Ico = s.icon;
+                return (
+                  <Reveal key={s.name} delay={(i % 2) * 70}>
+                    <Link
+                      href={s.href}
+                      className="card-sheen hover-lift group flex h-full flex-col rounded-2xl border border-(--line) bg-(--surface) p-7 shadow-soft"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <IconChip size="sm"><Ico size={16} /></IconChip>
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-(--ink-faint)">
+                          {s.pillar}
+                        </span>
+                      </div>
+                      <h4 className="mt-5 text-lg leading-snug text-(--ink)">{s.name}</h4>
+                      <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-(--ink-soft)">{s.plain}</p>
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--navy-text)">
+                        Read more
+                        <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            <Reveal>
+              <div className="mt-10 rounded-2xl border border-(--line) bg-(--surface) p-7 shadow-soft lg:p-8">
+                <p className="measure text-[15px] leading-relaxed text-(--ink-soft)">
+                  <span className="font-medium text-(--ink)">When people say AI adoption, this is what they mean.</span>{" "}
+                  Putting AI agents and automation inside the workflows your business already runs. Not a
+                  course, and not a chatbot subscription. The test is whether a step that used to need a
+                  person still needs one.
+                </p>
+                <p className="measure mt-4 text-[15px] leading-relaxed text-(--ink-soft)">
+                  <span className="font-medium text-(--ink)">We work with businesses from about five staff upwards.</span>{" "}
+                  Fit is decided by the work rather than the headcount. A small firm buys an automation, a
+                  native build, or Copilot for everyone in the room. A group with several entities buys the
+                  system of record.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          <p className="mx-auto mt-14 max-w-2xl text-center text-xl leading-snug text-(--ink)" style={{ fontFamily: "var(--font-serif)" }}>
             The AI Edge teaches your people to use AI. AI Integration builds AI that does the job.
           </p>
         </Container>
