@@ -26,12 +26,12 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 xl:flex xl:gap-6" aria-label="Primary">
           {nav.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm transition-colors ${
+              className={`whitespace-nowrap text-sm transition-colors ${
                 isActive(link.href) ? "text-(--navy-text)" : "text-(--ink-soft) hover:text-(--ink)"
               }`}
             >
@@ -41,13 +41,13 @@ export default function Navbar() {
           <ThemeToggle />
           <Link
             href="/contact"
-            className="pressable rounded-lg bg-(--navy) px-5 py-2.5 text-sm font-medium text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-(--navy-dark)"
+            className="pressable whitespace-nowrap rounded-lg bg-(--navy) px-4 py-2.5 text-sm font-medium text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-(--navy-dark)"
           >
             Book a diagnostic
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <ThemeToggle />
           <button
             className="p-1 text-(--ink)"
@@ -61,7 +61,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-(--line) bg-(--ground) lg:hidden">
+        <div className="border-t border-(--line) bg-(--ground) xl:hidden">
           <nav className="mx-auto flex w-full max-w-6xl flex-col px-6 py-4" aria-label="Mobile">
             {nav.map((link) => (
               <Link
