@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The Operations Core",
   description:
-    "Software that does the work. One system holding every operation and every naira, built on ERPNext. Plus AI built into the workflow to carry work end to end.",
+    "Software that does the work. One system holding every operation and every naira, built on ERPNext. Plus AI Integration: agents and automation inside the workflows you already run, and AI built on your own documents and records.",
   alternates: { canonical: `${site.url}/operations-core` },
   openGraph: { title: "The Operations Core | MorningEdge Systems", url: `${site.url}/operations-core` },
 };
@@ -25,7 +25,7 @@ const lines = [
   {
     title: "AI Integration",
     line: "AI that does the job, not AI that assists a person doing it.",
-    body: "AI built into the workflow to carry work end to end. Customer support agents, document capture and posting, exception detection, report generation, system-to-system automation. A department head can sign a pilot.",
+    body: "Two kinds of work. Agents and automation placed inside the workflows you already run, which is what people mean by AI adoption: support cases answered and closed, invoices read and posted, exceptions flagged, reports produced. And AI built on your own documents and records, answering from your material with the source attached, inside your own environment. A department head can sign a pilot.",
     buyer: "Managing Director, COO, Head of Customer Experience",
     href: "/operations-core/ai-integration",
   },
@@ -36,7 +36,7 @@ export default function OperationsCorePage() {
     <>
       <PageHero
         title="Software that does the work."
-        lead="The Operations Core puts capability into your software. The system holds the operation, instead of a person holding it in their head or their spreadsheet. Two service lines. Neither requires the other."
+        lead="The Operations Core puts capability into your software. The system holds the operation, instead of a person holding it in their head or their spreadsheet. Two service lines, one system of record and one AI, and neither requires the other."
         image="/pictures/about-header.jpg"
         alt="A team reviewing the operation together at a table"
         imagePosition="object-[center_30%]"
