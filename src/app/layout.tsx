@@ -10,6 +10,7 @@ const fraunces = Fraunces({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
+  style: ["normal", "italic"],
   axes: ["opsz"],
 });
 

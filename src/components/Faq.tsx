@@ -11,7 +11,7 @@ export default function Faq({ items }: { items: FaqItem[] }) {
             <span className="font-medium">{item.q}</span>
             <ChevronDown
               size={20}
-              className="faq-chevron flex-shrink-0 text-(--navy-text) transition-transform duration-300"
+              className="faq-chevron flex-shrink-0 text-(--gold) transition-transform duration-300"
               aria-hidden="true"
             />
           </summary>

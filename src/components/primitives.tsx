@@ -21,13 +21,13 @@ export function ButtonLink({
   className?: string;
 }) {
   const base =
-    "pressable inline-flex items-center justify-center gap-2 rounded-lg font-medium text-center sm:whitespace-nowrap";
+    "pressable inline-flex items-center justify-center gap-2 rounded-[3px] font-medium text-center sm:whitespace-nowrap";
   const sizing = size === "lg" ? "px-7 py-4 text-[15px]" : "px-6 py-3.5 text-sm";
   const styles = {
     primary:
-      "bg-(--navy) text-white shadow-[0_8px_22px_-8px_rgba(26,26,181,0.55)] hover:bg-(--navy-dark) hover:shadow-[0_12px_30px_-10px_rgba(26,26,181,0.65)]",
+      "bg-(--navy) text-white hover:bg-(--navy-dark)",
     secondary:
-      "border border-(--ink)/15 bg-(--surface) text-(--ink) shadow-soft hover:border-(--ink)/35",
+      "border border-(--ink)/25 text-(--ink) hover:border-(--gold) hover:text-(--gold)",
     ghost: "text-(--navy-text) hover:bg-(--navy-text)/6",
   }[variant];
   const props = external ? { target: "_blank", rel: "noopener noreferrer" } : {};

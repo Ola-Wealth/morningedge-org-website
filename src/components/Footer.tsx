@@ -16,7 +16,7 @@ const firmLinks = [
 
 export default function Footer() {
   return (
-    <footer className="texture-dots [--dot:rgba(255,255,255,0.06)] border-t border-(--line) bg-[#17150F] text-[#E9E4D8]">
+    <footer className="overflow-hidden border-t border-(--line) bg-[#0C0B0A] text-[#E9E4D8]">
       <div className="mx-auto w-full max-w-6xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="md:col-span-2 flex flex-col gap-5">
@@ -65,7 +65,9 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#8A8578] md:flex-row md:items-center md:justify-between">
+        <p aria-hidden="true" className="footer-wordmark mt-16 select-none">MorningEdge</p>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#8A8578] md:flex-row md:items-center md:justify-between">
           <p>&copy; {new Date().getFullYear()} {site.legalName} ({site.rc}). All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link href="/legal/privacy" className="transition-colors hover:text-white">Privacy</Link>
