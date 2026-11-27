@@ -297,3 +297,40 @@
   .hover-lift, .pressable { transition: none; }
   .hover-lift:hover, .pressable:active { transform: none; }
 }
+
+/* ── Client logo marquee ──
+   The track holds the logo set twice; sliding it by exactly half (-50%) lands
+   the second copy where the first began, so the loop has no visible seam.
+   Edges fade through a mask. Hover or keyboard focus pauses it. With reduced
+   motion the track stays still and wraps, so every logo remains visible. */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem; /* matches the gap so the seam between copies is even */
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes marquee-slide {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+  .marquee-track { animation: marquee-slide 28s linear infinite; }
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
+  .marquee-group { flex-wrap: wrap; justify-content: center; padding-right: 0; }
+  .marquee-group[aria-hidden="true"],
+  .marquee-group li[aria-hidden="true"] { display: none; }
+}

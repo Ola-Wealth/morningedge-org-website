@@ -144,6 +144,16 @@ const outcomes = [
   },
 ];
 
+// Client logos. Files are trimmed copies of the originals in
+// Sales & Marketing Assets/Company Profile/img/logos/. Each sits on a white
+// tile because the source files carry white backgrounds.
+const clients = [
+  { name: "Vatebra", src: "/clients/vatebra.png", w: 1200, h: 302, className: "h-auto max-h-9 w-auto max-w-full object-contain sm:max-h-10" },
+  { name: "Focus Energies", src: "/clients/focus-energies.png", w: 738, h: 276, className: "h-auto max-h-11 w-auto max-w-full object-contain sm:max-h-12" },
+  { name: "BRG Academy, Billionaire Realtors Group", src: "/clients/brg-academy.png", w: 420, h: 280, className: "h-auto max-h-16 w-auto max-w-full object-contain sm:max-h-20" },
+  { name: "Urban Living", src: "/clients/urban-living.png", w: 225, h: 225, className: "h-auto max-h-14 w-auto rounded-lg object-contain sm:max-h-16" },
+];
+
 const quotes = [
   {
     text: "“It was eye opening for me. I felt I was already AI savvy till the class exposed gaps.”",
@@ -244,6 +254,51 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* ── CLIENTS ── */}
+      <section className="border-b border-(--line)" aria-labelledby="clients-heading">
+        <Container className="py-14 lg:py-16">
+          <Reveal>
+            <p id="clients-heading" className="text-center text-sm text-(--ink-faint)">
+              Organisations we have worked with
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            {/* Two identical groups make the seamless loop. Each group repeats the
+                set twice so one group is always wider than the screen. Only the
+                first group is announced to screen readers. */}
+            <div className="marquee mt-8" role="region" aria-label="Client logos">
+              <div className="marquee-track">
+                {[0, 1].map((group) => (
+                  <ul
+                    key={group}
+                    className="marquee-group"
+                    aria-hidden={group === 1 ? true : undefined}
+                  >
+                    {[...clients, ...clients].map((c, i) => (
+                      <li
+                        key={`${c.name}-${i}`}
+                        aria-hidden={i >= clients.length ? true : undefined}
+                        className="flex h-24 w-48 flex-shrink-0 items-center justify-center rounded-2xl border border-(--line) bg-white px-6 sm:h-28 sm:w-60"
+                      >
+                        <Image
+                          src={c.src}
+                          alt={group === 0 && i < clients.length ? c.name : ""}
+                          width={c.w}
+                          height={c.h}
+                          className={c.className}
+                          sizes="240px"
+                          loading="eager"
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
