@@ -527,9 +527,8 @@ export default function HomePage() {
           <Reveal>
             <h2 className={`${h2} max-w-3xl`}>What people did differently afterwards.</h2>
             <p className="measure mt-6 text-[16px] leading-relaxed text-(--ink-soft)">
-              From an eight session programme run with a Nigerian technology group, reviewed at the
-              end by the people who sat in it. The client is not named and the words below are
-              theirs, unedited.
+              From an eight session programme run with Vatebra, reviewed at the end by the people
+              who sat in it. The words below are theirs, unedited, and credited by role.
             </p>
           </Reveal>
 
